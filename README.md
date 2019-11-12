@@ -1,1 +1,1 @@
-# Digital-Madplan
+# Digital Mealplan
