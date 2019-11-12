@@ -1,5 +1,5 @@
 int main(void){
 
-    printf("test");
+    printf("First Digital Mealplan");
     return 0;
 }
