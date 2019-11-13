@@ -2,7 +2,7 @@
 
 int main(void){
 
-    printf("test");
+    printf("kasper");
 
 
     return 0;
