@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 int main(void){
+    /*magnus*/
 
-    printf("test");
+    printf("kasper");
 
 
     return 0;
