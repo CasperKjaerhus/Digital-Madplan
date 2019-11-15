@@ -6,3 +6,4 @@ clean:
 	@echo "Removing all .exe and .o files"
 	rm -f *.exe
 	rm -f ./compiled/*.o
+	rm -f ./files/*.txt

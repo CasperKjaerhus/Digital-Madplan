@@ -12,3 +12,14 @@ int doesFileExist(char fileLocation[]){
     return 1;
 }
 
+/*This function creates a file at fileLocation and returns a success or fail*/
+int createFile(char fileLocation[]){
+    if(doesFileExist(fileLocation) == 0){
+        FILE *file = fopen(fileLocation, "w");
+        fclose(file);
+        return 1;
+    }
+    printf("WARNING: \"%s\" already exists!\n", fileLocation);
+    return 0;
+}
+
