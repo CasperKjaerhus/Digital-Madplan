@@ -3,7 +3,7 @@ Digital_Mealplan.exe: ./source/Digital_Mealplan.c compiled/FileHandler.o
 compiled/FileHandler.o: ./source/FileHandler.c
 	gcc -c ./source/FileHandler.c -Wall -pedantic -o compiled/FileHandler.o
 clean:
-	@echo "Removing all .exe and .o files"
+	@echo "Removing all .exe, .txt & .o files"
 	rm -f *.exe
 	rm -f ./compiled/*.o
 	rm -f ./files/*.txt
