@@ -1,3 +1,5 @@
+#include "Ingredient.h"
+
 typedef struct Recipe{
     char *name;
     int calories;
