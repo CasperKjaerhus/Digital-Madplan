@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ingredient.h": "c",
+        "filehandler.h": "c"
+    }
+}

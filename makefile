@@ -4,6 +4,8 @@ compiled/FileHandler.o: ./source/FileHandler.c
 	gcc -c ./source/FileHandler.c -Wall -pedantic -o compiled/FileHandler.o
 compiled/Ingredient.o: ./source/Ingredient.c
 	gcc -c ./source/Ingredient.c -Wall -pedantic -o compiled/Ingredient.o
+compiled/Recipe.o: ./source/Recipe.c ./compiled/Ingredient.o
+	gcc -c ./compiled/Ingredient.o ./source/Ingredient.c -Wall -pedantic -o compiled/Recipe.o
 clean:
 	@echo "Removing all .exe, .txt & .o files"
 	rm -f *.exe
