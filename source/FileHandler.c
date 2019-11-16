@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "FileHandler.h"
 
 /*This function returns whether a file exist or not*/
 int doesFileExist(char fileLocation[]){
