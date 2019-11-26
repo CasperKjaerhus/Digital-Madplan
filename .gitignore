@@ -1,6 +1,4 @@
 *.exe
 *.o 
 compiled/
-files/shoppinglist.txt
-files/mealplan.txt
 .vscode/

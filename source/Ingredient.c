@@ -4,7 +4,7 @@
 
 
 void createIngredient(char *name, int amount){
-    Ingredient asd;
+    Ingredient newIngredient;
     
     newIngredient.name = malloc(strlen(name));
 }
