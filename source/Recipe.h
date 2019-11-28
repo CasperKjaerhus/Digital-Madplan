@@ -1,4 +1,7 @@
 #include "Ingredient.h"
+#include "FileHandler.h"
+#include <stdio.h>
+#include <string.h>
 
 typedef struct Recipe{
     char *name;
@@ -6,3 +9,5 @@ typedef struct Recipe{
     Ingredient *ingredients;
     Ingredient test;
 } Recipe;
+
+Recipe *readRecipe();
