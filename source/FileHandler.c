@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "FileHandler.h"
-
 /*This function returns whether a file exist or not*/
 int doesFileExist(char fileLocation[]){
 
@@ -21,4 +19,17 @@ int createFile(char fileLocation[]){
     }
     printf("WARNING: \"%s\" already exists!\n", fileLocation);
     return 0;
+}
+
+FILE *openFile(char *fileLocation, char *mode){
+    if(!doesFileExist(fileLocation)){
+        printf("Error: File %s does not exist!!", fileLocation);
+        return NULL;
+    }
+    FILE *file = fopen(fileLocation, mode);
+    if(file == NULL){
+        printf("Error: should really not happen! (FileHandler.c: OpenFile() returned NULL");
+    }
+
+    return file;
 }

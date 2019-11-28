@@ -16,3 +16,14 @@ Recipe *get_recipe(char *ingredient, Recipe *recipelist, int amount){
 
     return *recipeOutput;
 }
+
+Recipe *readRecipe(){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char name[30];
+    fscanf(file, "{\n name=\"%[^\"]\";", name);
+    
+
+    printf("name = %s\n", name);
+    fclose(file);
+    return NULL;
+}
