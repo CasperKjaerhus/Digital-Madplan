@@ -5,5 +5,6 @@
 
 int main(void){
     
+    readRecipe();
     return 0;
 }
