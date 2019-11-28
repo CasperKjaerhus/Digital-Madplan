@@ -1,0 +1,8 @@
+{
+name="fars"
+kategori="0"
+}
+{
+name="lasagne plader"
+kategori="1"
+}

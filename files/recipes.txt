@@ -1,6 +1,6 @@
 {
-name="lasagne"
-ingredient="fars"
-amount="200"
-unit="gram"
+name="lasagne";
+ingredient="fars", amount="200", unit="gram";
+ingredient="lasagne plader", amount="2", unit="plader";
+
 }
