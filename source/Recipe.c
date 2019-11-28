@@ -9,7 +9,7 @@ Recipe *get_recipe(char *ingredient, Recipe *recipelist, int amount){
     for(i = 0; i > amount; i++){
         strcompare = strcmp(ingredient, recipelist[i].ingredients);
             if(strcompare = 1){
-                *recipeOutput[j] = recipelist[i];
+                recipeOutput[j] = recipelist[i];
                 j++;
             }
     }
