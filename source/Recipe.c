@@ -1,29 +1,34 @@
 #include "Recipe.h"
-#include "string.h"
-#include "stdlib.h"
 
-Recipe *get_recipe(char *ingredient, Recipe *recipelist, int amount){
-    int i, strcompare, j = 0;
-    Recipe *recipeOutput = malloc(sizeof(Recipe)*amount);
+Recipe readRecipe(){
+    Recipe recipe;
 
-    for(i = 0; i > amount; i++){
-        strcompare = strcmp(ingredient, recipelist[i].ingredients);
-            if(strcompare = 1){
-                recipeOutput[j] = recipelist[i];
-                j++;
-            }
-    }
-
-    return *recipeOutput;
-}
-
-Recipe *readRecipe(){
     FILE *file = openFile("files/recipes.txt", "r");
-    char name[30];
+    char name[30], unit[30];
+    int amount;
     fscanf(file, "{\n name=\"%[^\"]\";", name);
-    
+    recipe.name = malloc(strlen(name));
+    strcpy(recipe.name, name);
 
-    printf("name = %s\n", name);
+    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * 20);
+    recipe.arrayLength = 20;
+
+    char line[100];
+    for(int i = 0; strcmp(line, "}") != 0; i++){
+        fgets(line, 100, file); /*Reads the whole line*/
+        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%d\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
+
+        /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
+        /*recipe.ingredients[i].name = malloc(strlen(name)); */
+
+        recipe.ingredients[i].amount = amount;
+        
+        recipe.ingredients[i].unit = malloc(strlen(unit));
+        strcpy(recipe.ingredients[i].unit, unit);
+    }
+    
+    printf("name = %s\n", recipe.name);
+    printf("amount = %d %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
     fclose(file);
-    return NULL;
+    return recipe;
 }
