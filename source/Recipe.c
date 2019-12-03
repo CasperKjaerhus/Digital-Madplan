@@ -1,6 +1,9 @@
 #include "Recipe.h"
+<<<<<<< HEAD
 #include <string.h>
 #include <stdlib.h>
+=======
+>>>>>>> f80ddbc2015d3169ab4bf56b9360cd29f52360d0
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
@@ -47,12 +50,32 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 
 Recipe *readRecipe(){
     FILE *file = openFile("files/recipes.txt", "r");
-    char name[30];
+    char name[30], unit[30];
+    int amount;
     fscanf(file, "{\n name=\"%[^\"]\";", name);
-    
+    recipe.name = malloc(strlen(name));
+    strcpy(recipe.name, name);
 
-    printf("name = %s\n", name);
+    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * 20);
+    recipe.arrayLength = 20;
+
+    char line[100];
+    for(int i = 0; strcmp(line, "}") != 0; i++){
+        fgets(line, 100, file); /*Reads the whole line*/
+        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%d\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
+
+        /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
+        /*recipe.ingredients[i].name = malloc(strlen(name)); */
+
+        recipe.ingredients[i].amount = amount;
+        
+        recipe.ingredients[i].unit = malloc(strlen(unit));
+        strcpy(recipe.ingredients[i].unit, unit);
+    }
+    
+    printf("name = %s\n", recipe.name);
+    printf("amount = %d %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
     fclose(file);
-    return NULL;
+    return recipe;
 }
 
