@@ -11,4 +11,4 @@ typedef struct Recipe{
     int arrayLength;
 } Recipe;
 
-Recipe readRecipe();
+Recipe *readRecipe();
