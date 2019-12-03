@@ -2,12 +2,9 @@
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
-    int random;
-
     if(max > 0){
-        random = (rand() % max);
-        return random;
-    } else{
+        return rand() % max;
+    } else {
         return 0;
     }
 }
@@ -45,6 +42,7 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 
 Recipe *readRecipe(){
     FILE *file = openFile("files/recipes.txt", "r");
+    Recipe recipe;
     char name[30], unit[30];
     int amount;
     fscanf(file, "{\n name=\"%[^\"]\";", name);
@@ -71,6 +69,6 @@ Recipe *readRecipe(){
     printf("name = %s\n", recipe.name);
     printf("amount = %d %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
     fclose(file);
-    return recipe;
+    return NULL;
 }
 
