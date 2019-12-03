@@ -10,7 +10,7 @@ ingredient="Vegtable stock", amount="50", unit="Milliliters";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Mozzarella cheese", amount="25", unit="Gram";
 ingredient="Salt and peber", amount="0", unit="To taste";
-ingredient="Italian seasosing", amount="0", unit="To taste";
+ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 
 {
@@ -24,7 +24,7 @@ ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Parmesan cheese", amount="25", unit="Gram";
 ingredient="Salt and peber", amount="0", unit="To taste";
-ingredient="Italian seasosing", amount="0", unit="To taste";
+ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 
 {

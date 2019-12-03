@@ -1,14 +1,4 @@
 {
-name="fars"
-kategori="0"
-}
-
-{
-name="lasagne plader"
-kategori="1"
-}
-
-{
 name="Carrot"
 kategori="1"
 }
@@ -33,7 +23,7 @@ kategori="1"
 }
 
 {
-name="brussel sprouts"
+name="brusselsprouts"
 kategori="1"
 }
 
@@ -508,6 +498,7 @@ name="tarragon"
 kategori="4"
 }
 
+q
 
 
 
