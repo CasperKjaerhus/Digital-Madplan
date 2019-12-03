@@ -1,12 +1,6 @@
 #include "Recipe.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include <string.h>
 #include <stdlib.h>
-=======
->>>>>>> f80ddbc2015d3169ab4bf56b9360cd29f52360d0
-=======
->>>>>>> f80ddbc2015d3169ab4bf56b9360cd29f52360d0
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
