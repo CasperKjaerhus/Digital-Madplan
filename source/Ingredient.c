@@ -18,4 +18,5 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
                 return ingredientOutput;
             }
     }
+    return *tempIngArr;
 }
