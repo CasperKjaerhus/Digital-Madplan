@@ -1,8 +1,49 @@
 #include "Recipe.h"
 
-Recipe readRecipe(){
-    Recipe recipe;
+/*Function that returns a random number. Used for get_recipe function*/
+int randomGen(int max){
+    int random;
 
+    if(max > 0){
+        random = (rand() % max);
+        return random;
+    } else{
+        return 0;
+    }
+}
+
+/*Function that returns a random recipe with a given ingredient*/
+Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
+    int i, strcompare, j = 0, randnum;
+    Recipe *recipeArray = malloc(sizeof(Recipe)*amount);
+    Recipe recipeOutput;
+    Ingredient *ingred2 = malloc(sizeof(Ingredient)*amount);
+
+    /*For-loop that stores ingredients in an ingredient-type array*/
+    for(i = 0; i < amount; i++)
+            ingred2[i] = *recipelist[i].ingredients;
+
+    /*Checks if the ingredient matches ingredients in the recipe, stores them in a new recipe array if true*/
+    for(i = 0; i < amount; i++){
+        strcompare = strcmp(ingred.name, ingred2[i].name);
+            if(strcompare == 0){
+                recipeArray[j] = recipelist[i];
+                j++;
+            }
+    }
+
+    randnum = randomGen(j);
+
+    /*Random recipe is chosen, so mealplans dont get too similar*/
+    recipeOutput = recipeArray[randnum];
+
+    free(ingred2);
+    free(recipeArray);
+    return recipeOutput;
+}
+
+
+Recipe *readRecipe(){
     FILE *file = openFile("files/recipes.txt", "r");
     char name[30], unit[30];
     int amount;
@@ -32,3 +73,4 @@ Recipe readRecipe(){
     fclose(file);
     return recipe;
 }
+

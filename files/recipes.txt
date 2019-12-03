@@ -1,5 +1,119 @@
 {
-name="lasagne";
-ingredient="fars", amount="200", unit="gram";
-ingredient="lasagne plader", amount="2", unit="plader";
+name="Lasagna";
+ingredient="Minced ground beef", amount="125", unit="Grams";
+ingredient="Lasagne noodles", amount="2.5", unit="Noodles";
+ingredient="Crushed tomatoes", amount="0.5", unit="Cans";
+ingredient="Minced onion", amount="50", unit="Grams";
+ingredient="Minced carrot", amount="100", unit="Grams";
+ingredient="Garlic", amount="2", unit="Cloves";
+ingredient="Vegtable stock", amount="50", unit="Milliliters";
+ingredient="Olive oil", amount="5", unit="Milliliters";
+ingredient="Mozzarella cheese", amount="25", unit="Gram";
+ingredient="Salt and peber", amount="To taste";
+ingredient="Italian seasosing", amount="To taste";
+}
+
+{
+name="Spaghetti Bolognese";
+ingredient="Minced ground beef", amount="125", unit="Grams";
+ingredient="Spaghetti pasta", amount="100", unit="Grams";
+ingredient="Crushed tomatoes", amount="0.5", unit="Cans";
+ingredient="Minced carrot", amount="100", unit="Grams";
+ingredient="Minced onion", amount="50", unit="Grams";
+ingredient="Garlic", amount="2", unit="Cloves";
+ingredient="Olive oil", amount="5", unit="Milliliters";
+ingredient="Parmesan cheese", amount="25", unit="Gram";
+ingredient="Salt and peber", amount="To taste";
+ingredient="Italian seasosing", amount="To taste";
+}
+
+{
+name="Burgers";
+ingredient="Sesam brioche buns", amount="2", unit="Buns";
+ingredient="Minced ground beef", amount="150", unit="Grams";
+ingredient="Sliced tomatoes", amount="50", unit="Grams";
+ingredient="Sliced onion", amount="50", unit="Grams";
+ingredient="Iceberg salat", amount="50", unit="Grams";
+ingredient="Pickles", amount="40", unit="Grams";
+ingredient="Gouda cheese", amount="25", unit="Gram";
+ingredient="Salt and peber", amount="To taste", unit="";
+ingredient="Olive oil", amount="5", unit="Millimeters";
+ingredient="Tomato ketchup", amount="To taste";
+ingredient="Chili Mayo", amount="To taste";
+}
+
+{
+name="Nordic curry stew";
+ingredient="Red lentils", amount="500", unit="Grams";
+ingredient="Water", amount="500", unit="Milliliters";
+ingredient="Celeriac", amount="75", unit="Grams";
+ingredient="Red onion", amount="50", unit="Grams";
+ingredient="Edamame beans", amount="50", unit="Grams";
+ingredient="Grated ginger", amount="5", unit="Grams";
+ingredient="Garlic", amount="2", unit="Cloves";
+ingredient="Lemon juice", amount="5", unit="Milliliters";
+ingredient="Ground cumin", amount="5", unit="Grams";
+ingredient="Creme fraiche", amount="50", unit="Milliliters";
+ingredient="Salt and peber", amount="To taste";
+}
+
+{
+name="Red kuri squash soup";
+ingredient="Red kuri squash", amount="250", unit="Grams";
+ingredient="Potato", amount="200", unit="Grams";
+ingredient="Vegetable stock", amount="50", unit="Milliliters";
+ingredient="Garlic", amount="2", unit="Cloves";
+ingredient="Parsley", amount="2", unit="Stalks";
+ingredient="Thime", amount="2", unit="Stalks";
+ingredient="Creme fraiche", amount="50", unit="Milliliters";
+ingredient="Wine vinegar", amount="4", unit="Milliliters";
+ingredient="Salt and peber", amount="To taste";
+ingredient="Toasted rye bread", amount="60", unit="Gram";
+}
+
+{
+name="Tortillas with Grilled Chicken";
+ingredient="Tortillas", amount="2", unit="Pieces";
+ingredient="Chicken fillets", amount="125", unit="Grams";
+ingredient="Tomato puré", amount="1", unit="can";
+ingredient="Creme fraiche", amount="50", unit="Milliliters";
+ingredient="Paprika", amount="1.5", unit="Grams";
+ingredient="Cayenne", amount="1.5", unit="Grams";
+ingredient="Chili powder", amount="1.5", unit="Grams";
+ingredient="Olive oil", amount="5", unit="Milliliters";
+ingredient="Chopped red bell pepper", amount="15", unit="Grams";
+ingredient="Black beans", amount="60", unit="Grams";
+ingredient="Avocado", amount="75", unit="Grams";
+ingredient="Salt and peber", amount="To taste";
+}
+
+{
+name="Baked Cod with Vegetables";
+ingredient="Cod fillets (fresh/frozen)", amount="125", unit="Grams";
+ingredient="Cauliflower", amount="75", unit="Grams";
+ingredient="Edamame beans", amount="50", unit="Grams";
+ingredient="Carrots", amount="50", unit="Grams";
+ingredient="Potato", amount="200", unit="Grams";
+ingredient="Boiling water", amount="275", unit="Milliliters";
+ingredient="Vegetable stock", amount="25", unit="Milliliters";
+ingredient="Butter", amount="6.5", unit="Grams";
+ingredient="Fresh chili", amount="5", unit="Grams";
+ingredient="Thime", amount="2", unit="Stalks";
+ingredient="Lemon juice", amount="5", unit="Milliliters";
+ingredient="Salt and peber", amount="To taste";
+}
+
+{
+name="Sweet 'n' Sour Noodles With Tiger Prawns";
+ingredient="Wholemeal Noodles", amount="60", unit="Grams";
+ingredient="Water", amount="500", unit="Milliliters";
+ingredient="Wine vinegar", amount="4", unit="Milliliters";
+ingredient="Sugar", amount="15", unit="Grams";
+ingredient="Carrots", amount="75", unit="Grams";
+ingredient="Green bell pepper", amount="60", unit="Grams";
+ingredient="Red bell pepper", amount="60", unit="Grams";
+ingredient="Egg", amount="1", unit="Piece";
+ingredient="Tiger prawns", amount="60", unit="Grams";
+ingredient="Tandoori spice", amount="3.5", unit="Grams";
+ingredient="Ketjap manis", amount="To taste";
 }
