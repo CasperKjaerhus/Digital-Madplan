@@ -1,6 +1,6 @@
 typedef struct Ingredient{
     char *name;
-    int amount;
+    double amount;
     char *unit;
     
 } Ingredient;

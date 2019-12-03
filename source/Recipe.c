@@ -42,35 +42,53 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 }
 
 
-Recipe *readRecipe(){
+Recipe *readRecipes(){
     FILE *file = openFile("files/recipes.txt", "r");
     Recipe recipe;
+
     char name[30], unit[30];
-    int amount;
-    fscanf(file, "{\n name=\"%[^\"]\";", name);
+    double amount;
+    
+    fscanf(file, "{\n name=\"%[^\"]\";", name); /*Reads the name of the recipe*/
+
     recipe.name = malloc(strlen(name));
     strcpy(recipe.name, name);
 
-    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * 20);
-    recipe.arrayLength = 20;
+    recipe.amount_of_ingredients = countIngredientInRecipe(name);
+    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * recipe.amount_of_ingredients);
 
     char line[100];
-    for(int i = 0; strcmp(line, "}") != 0; i++){
+    fgets(line, 100, file);
+    for(int i = 0; strncmp(line, "}", 1) != 0; i++){
         fgets(line, 100, file); /*Reads the whole line*/
-        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%d\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
-
+        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%lf\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
+        printf("i: %d\n", i);
         /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
         /*recipe.ingredients[i].name = malloc(strlen(name)); */
 
         recipe.ingredients[i].amount = amount;
         
-        recipe.ingredients[i].unit = malloc(strlen(unit));
+        recipe.ingredients[i].unit = (char *) malloc(strlen(unit) + 1);
         strcpy(recipe.ingredients[i].unit, unit);
     }
-    
+
     printf("name = %s\n", recipe.name);
-    printf("amount = %d %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
+    printf("amount = %lf %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
     fclose(file);
     return NULL;
 }
 
+/*This function counts how many ingredients a given recipe has*/
+int countIngredientInRecipe(char *name){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char line[100];
+    int i;
+    while(fgets(line, 100, file) != NULL){
+        if(strstr(line, name) != NULL){ /*Skips all lines that don't include name*/
+            for(i = 0; strncmp(line, "}", 1) != 0; i++) /*Counts all lines until } is reached*/
+                fgets(line, 100, file);
+            return i-1; /*-1 so to not count the line with "}" in it*/
+        }
+    }
+    return 0;
+}
