@@ -1,4 +1,6 @@
 #include "Recipe.h"
+#include <string.h>
+#include <stdlib.h>
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
