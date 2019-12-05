@@ -3,8 +3,6 @@
 #include <string.h>
 #define MAXCHAR 1000
 enum category{meat, vegetables, fruit, carbohydrates, spices};
-<<<<<<< HEAD
-=======
 
 typedef struct Ingredient{
     char *name;
@@ -42,7 +40,6 @@ int main(void){
 return 0;
 }
 
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
 
 typedef struct Ingredient{
     char *name;
@@ -159,12 +156,8 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
     int i, strcompare;
     Ingredient *tempIngArr = malloc(sizeof(Ingredient)*arrSize), ingredientOutput;
 
-<<<<<<< HEAD
-
     for(i = 0; i < arrSize; i++){
 
-=======
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
 void createIngredient(char *name, int amount){
     Ingredient newIngredient;
     
@@ -183,7 +176,6 @@ void createIngredient(char *name, int amount){
                 return ingredientOutput;
             }
     }
-<<<<<<< HEAD
 
 }
 
@@ -195,7 +187,5 @@ void createIngredient(char *name, int amount){
     return *tempIngArr;
 }
 
-=======
     return *tempIngArr;
 }
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
