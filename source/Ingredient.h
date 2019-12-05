@@ -6,6 +6,6 @@ enum category{meat, vegetables, fruit, carbohydrates, spices};
 typedef struct Ingredient{
     char *name;
     double amount;
-    enum category;
+    enum category cType;
     char *unit;
 } Ingredient;
