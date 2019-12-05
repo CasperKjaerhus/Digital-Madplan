@@ -32,7 +32,7 @@ int main(void){
     }
 
     for(i = 0; i <= 255; i++){
-        fscanf(recipe, "{\nname=\"%[^\"]\"\n kategori= %d \n}", ingredient_name[i].name, &cType);
+        fscanf(recipe, "{\nname=\"%[^\"]\"\n kategori= %d \n}", ingredient_name[i].name, cType);
                 printf("%s %d", ingredient_name[i].name, cType);
     }
     fclose(recipe);
