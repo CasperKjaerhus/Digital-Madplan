@@ -3,7 +3,7 @@
 #include "Ingredient.h"
 #include <stdlib.h>
 #include <string.h>
-/*
+
 Shoppinglist *shopping_list(Recipe *recipe_input, int list_size){
     int i, j;
     Shoppinglist *shop_list = malloc(sizeof(Shoppinglist)*list_size);
@@ -18,5 +18,3 @@ Shoppinglist *shopping_list(Recipe *recipe_input, int list_size){
 
     return shop_list;
 }
-
-*/
