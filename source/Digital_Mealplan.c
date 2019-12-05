@@ -6,7 +6,7 @@
 
 int main(void){
     srand(time(NULL));
-    
+
     readRecipes();
     return 0;
 }

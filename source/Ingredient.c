@@ -8,7 +8,7 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
     int i, strcompare;
     Ingredient *tempIngArr = malloc(sizeof(Ingredient)*arrSize), ingredientOutput;
 
-    for(i = 0; i < arrSize; i++){
+
 
         for(i = 0; i > arrSize; i++){
             tempIngArr[i] = ingArray[i];
@@ -22,6 +22,12 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
                 }
         }
 
-    }
     return *tempIngArr;
 }
+
+void createIngredient(char *name, int amount){
+    Ingredient newIngredient;
+    
+    newIngredient.name = malloc(strlen(name));
+}
+
