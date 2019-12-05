@@ -4,7 +4,7 @@
 #include "Ingredient.h"
 
 /*Function that searches for a ingredient char and finds the corresponding ingrendient struct*/
-Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_name){
+/*Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_name){
     int i, strcompare;
     Ingredient *tempIngArr = malloc(sizeof(Ingredient)*arrSize), ingredientOutput;
 
@@ -24,10 +24,10 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
 
     return *tempIngArr;
 }
-
+*/
 void createIngredient(char *name, int amount){
-    Ingredient newIngredient;
+    //Ingredient newIngredient;
     
-    newIngredient.name = malloc(strlen(name));
+    //newIngredient.name = malloc(strlen(name));
 }
 
