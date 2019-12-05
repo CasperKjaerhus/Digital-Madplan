@@ -12,7 +12,6 @@ ingredient="Mozzarella cheese", amount="25", unit="Gram";
 ingredient="Salt and peber", amount="0", unit="To taste";
 ingredient="Italian seasoning", amount="0", unit="To taste";
 }
-
 {
 name="Spaghetti Bolognese";
 ingredient="Minced ground beef", amount="125", unit="Grams";
@@ -26,7 +25,6 @@ ingredient="Parmesan cheese", amount="25", unit="Gram";
 ingredient="Salt and peber", amount="0", unit="To taste";
 ingredient="Italian seasoning", amount="0", unit="To taste";
 }
-
 {
 name="Burgers";
 ingredient="Sesam brioche buns", amount="2", unit="Buns";
@@ -41,7 +39,6 @@ ingredient="Olive oil", amount="5", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
 }
-
 {
 name="Nordic curry stew";
 ingredient="Red lentils", amount="500", unit="Grams";
@@ -56,7 +53,6 @@ ingredient="Ground cumin", amount="5", unit="Grams";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
 ingredient="Salt and peber", amount="0", unit="To taste";
 }
-
 {
 name="Red kuri squash soup";
 ingredient="Red kuri squash", amount="250", unit="Grams";
@@ -70,7 +66,6 @@ ingredient="Wine vinegar", amount="4", unit="Milliliters";
 ingredient="Salt and peber", amount="0", unit="To taste";
 ingredient="Toasted rye bread", amount="60", unit="Gram";
 }
-
 {
 name="Tortillas with Grilled Chicken";
 ingredient="Tortillas", amount="2", unit="Pieces";
@@ -86,7 +81,6 @@ ingredient="Black beans", amount="60", unit="Grams";
 ingredient="Avocado", amount="75", unit="Grams";
 ingredient="Salt and peber", amount="0", unit="To taste";
 }
-
 {
 name="Baked Cod with Vegetables";
 ingredient="Cod fillets (fresh/frozen)", amount="125", unit="Grams";
@@ -102,7 +96,6 @@ ingredient="Thime", amount="2", unit="Stalks";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
 ingredient="Salt and peber", amount="0", unit="To taste";
 }
-
 {
 name="Sweet 'n' Sour Noodles With Tiger Prawns";
 ingredient="Wholemeal Noodles", amount="60", unit="Gram";

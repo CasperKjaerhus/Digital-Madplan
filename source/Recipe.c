@@ -4,9 +4,10 @@
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
+
     if(max > 0){
-        return rand() % max;
-    } else {
+        return (rand() % max);
+    } else{
         return 0;
     }
 }
@@ -42,35 +43,85 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 }
 
 
-Recipe *readRecipe(){
+Recipe *readRecipes(){
     FILE *file = openFile("files/recipes.txt", "r");
-    Recipe recipe;
-    char name[30], unit[30];
-    int amount;
-    fscanf(file, "{\n name=\"%[^\"]\";", name);
-    recipe.name = malloc(strlen(name));
-    strcpy(recipe.name, name);
-
-    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * 20);
-    recipe.arrayLength = 20;
-
-    char line[100];
-    for(int i = 0; strcmp(line, "}") != 0; i++){
-        fgets(line, 100, file); /*Reads the whole line*/
-        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%d\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
-
-        /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
-        /*recipe.ingredients[i].name = malloc(strlen(name)); */
-
-        recipe.ingredients[i].amount = amount;
-        
-        recipe.ingredients[i].unit = malloc(strlen(unit));
-        strcpy(recipe.ingredients[i].unit, unit);
+    char RecipeLine[100];
+    int amount_of_recipes = countRecipes();
+    printf("%d\n", amount_of_recipes);
+    Recipe *recipes = malloc(sizeof(Recipe) * amount_of_recipes);
+    for(int i = 0; !feof(file); i++){
+        printf("What %d\n", i);
+        recipes[i] = readRecipe(file);
     }
-    
-    printf("name = %s\n", recipe.name);
-    printf("amount = %d %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
     fclose(file);
     return NULL;
 }
 
+Recipe readRecipe(FILE *file){
+    Recipe recipe;
+    char name[30], unit[30];
+    double amount;
+    fscanf(file, "{\n name=\"%[^\"]\";", name); /*Reads the name of the recipe*/
+
+    recipe.name = (char *) malloc(strlen(name) + 1);
+    strcpy(recipe.name, name);
+
+    recipe.amount_of_ingredients = countIngredientInRecipe(name);
+    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * recipe.amount_of_ingredients);
+
+    char line[100];
+    fgets(line, 100, file);
+    for(int i = 0; strncmp(line, "}", 1) != 0; i++){
+        fgets(line, 100, file); /*Reads the whole line*/
+        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%lf\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
+        /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
+        recipe.ingredients[i].name = (char *) malloc(strlen(name) + 1);
+        strcpy(recipe.ingredients[i].name, name);
+
+        recipe.ingredients[i].amount = amount;
+        
+        
+        recipe.ingredients[i].unit = (char *) malloc(strlen(unit) + 1);
+        strcpy(recipe.ingredients[i].unit, unit);
+    }
+
+    printf("Recipe name: %s\n", recipe.name);
+    for(int i = 0; i < recipe.amount_of_ingredients; i++){
+        printf("Ingredient: %s %lf %s\n", recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+    }
+    return recipe;
+}
+
+/*This function counts how many ingredients a given recipe has*/
+int countIngredientInRecipe(char *name){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char line[100];
+    int i;
+    while(fgets(line, 100, file) != NULL){
+        if(strstr(line, name) != NULL){ /*Skips all lines that don't include name*/
+            for(i = 0; strncmp(line, "}", 1) != 0; i++) /*Counts all lines until } is reached*/
+                fgets(line, 100, file);
+            return i-1; /*-1 so to not count the line with "}" in it*/
+        }
+    }
+    return 0;
+}
+
+int countRecipes(){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char line[100];
+    int opens = 0, closes = 0;
+    while(!feof(file)){
+        fgets(line, 100, file);
+        if(strncmp(line, "{", 1) == 0)
+            opens++;
+        else if(strncmp(line, "}", 1) == 0)
+            closes++;
+    }
+
+    if(opens != closes){
+        printf("Error: files/recipes.txt syntax error, missing \"{\" or \"}\"");
+        exit(EXIT_FAILURE);
+    }
+    return opens;
+}

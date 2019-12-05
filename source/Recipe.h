@@ -8,7 +8,10 @@ typedef struct Recipe{
     char *name;
     int calories;
     Ingredient *ingredients;
-    int arrayLength;
+    int amount_of_ingredients;
 } Recipe;
 
-Recipe *readRecipe();
+Recipe *readRecipes();
+int countIngredientInRecipe(char *name);
+Recipe readRecipe(FILE *file);
+int countRecipes();
