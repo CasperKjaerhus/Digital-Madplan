@@ -8,12 +8,6 @@ int randomGen(int max){
     if(max > 0){
         return (rand() % max);
     } else{
-    if(max > 0){
-    if(max > 0){
-    if(max > 0){
-    if(max > 0){
-        return rand() % max;
-    } else {
         return 0;
     }
 }
