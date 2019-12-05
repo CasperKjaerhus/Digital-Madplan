@@ -7,7 +7,7 @@ int randomGen(int max){
 
     if(max > 0){
         return (rand() % max);
-    }else{
+    } else{
         return 0;
     }
 }
@@ -105,4 +105,23 @@ int countIngredientInRecipe(char *name){
         }
     }
     return 0;
+}
+
+int countRecipes(){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char line[100];
+    int opens = 0, closes = 0;
+    while(!feof(file)){
+        fgets(line, 100, file);
+        if(strncmp(line, "{", 1) == 0)
+            opens++;
+        else if(strncmp(line, "}", 1) == 0)
+            closes++;
+    }
+
+    if(opens != closes){
+        printf("Error: files/recipes.txt syntax error, missing \"{\" or \"}\"");
+        exit(EXIT_FAILURE);
+    }
+    return opens;
 }
