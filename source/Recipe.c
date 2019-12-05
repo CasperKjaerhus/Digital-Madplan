@@ -4,11 +4,9 @@
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
-    int random;
 
     if(max > 0){
-        random = (rand() % max);
-        return random;
+        return (rand() % max);
     } else{
         return 0;
     }
