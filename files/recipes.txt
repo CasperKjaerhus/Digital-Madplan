@@ -1,7 +1,7 @@
 {
 name="Lasagna";
 ingredient="Minced ground beef", amount="125", unit="Grams";
-ingredient="Lasagne noodles", amount="2.5", unit="Noodles";
+ingredient="Lasagne noodles", amount="2.5", unit="Lasagna noodles";
 ingredient="Crushed tomatoes", amount="0.5", unit="Cans";
 ingredient="Minced onion", amount="50", unit="Grams";
 ingredient="Minced carrot", amount="100", unit="Grams";
@@ -9,8 +9,8 @@ ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Vegtable stock", amount="50", unit="Milliliters";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Mozzarella cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="To taste";
-ingredient="Italian seasosing", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 {
 name="Spaghetti Bolognese";
@@ -22,8 +22,8 @@ ingredient="Minced onion", amount="50", unit="Grams";
 ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Parmesan cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="To taste";
-ingredient="Italian seasosing", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 {
 name="Burgers";
@@ -34,10 +34,10 @@ ingredient="Sliced onion", amount="50", unit="Grams";
 ingredient="Iceberg salat", amount="50", unit="Grams";
 ingredient="Pickles", amount="40", unit="Grams";
 ingredient="Gouda cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="To taste", unit="";
+ingredient="Salt and peber", amount="", unit="Pinches";
 ingredient="Olive oil", amount="5", unit="Millimeters";
-ingredient="Tomato ketchup", amount="To taste";
-ingredient="Chili Mayo", amount="To taste";
+ingredient="Tomato ketchup", amount="0", unit="To taste";
+ingredient="Chili Mayo", amount="0", unit="To taste";
 }
 {
 name="Nordic curry stew";
@@ -51,7 +51,7 @@ ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
 ingredient="Ground cumin", amount="5", unit="Grams";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
-ingredient="Salt and peber", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
 }
 {
 name="Red kuri squash soup";
@@ -63,7 +63,7 @@ ingredient="Parsley", amount="2", unit="Stalks";
 ingredient="Thime", amount="2", unit="Stalks";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
 ingredient="Wine vinegar", amount="4", unit="Milliliters";
-ingredient="Salt and peber", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
 ingredient="Toasted rye bread", amount="60", unit="Gram";
 }
 {
@@ -79,7 +79,7 @@ ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Chopped red bell pepper", amount="15", unit="Grams";
 ingredient="Black beans", amount="60", unit="Grams";
 ingredient="Avocado", amount="75", unit="Grams";
-ingredient="Salt and peber", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
 }
 {
 name="Baked Cod with Vegetables";
@@ -94,19 +94,19 @@ ingredient="Butter", amount="6.5", unit="Grams";
 ingredient="Fresh chili", amount="5", unit="Grams";
 ingredient="Thime", amount="2", unit="Stalks";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
-ingredient="Salt and peber", amount="To taste";
+ingredient="Salt and peber", amount="0", unit="To taste";
 }
 {
 name="Sweet 'n' Sour Noodles With Tiger Prawns";
-ingredient="Wholemeal Noodles", amount="60", unit="Grams";
+ingredient="Wholemeal Noodles", amount="60", unit="Gram";
 ingredient="Water", amount="500", unit="Milliliters";
 ingredient="Wine vinegar", amount="4", unit="Milliliters";
 ingredient="Sugar", amount="15", unit="Grams";
 ingredient="Carrots", amount="75", unit="Grams";
 ingredient="Green bell pepper", amount="60", unit="Grams";
 ingredient="Red bell pepper", amount="60", unit="Grams";
-ingredient="Egg", amount="1", unit="Piece";
+ingredient="Egg", amount="1", unit="Egg(s)";
 ingredient="Tiger prawns", amount="60", unit="Grams";
 ingredient="Tandoori spice", amount="3.5", unit="Grams";
-ingredient="Ketjap manis", amount="To taste";
+ingredient="Ketjap manis", amount="0", unit="To taste";
 }
