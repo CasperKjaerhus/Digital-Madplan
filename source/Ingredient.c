@@ -3,8 +3,6 @@
 #include <string.h>
 #define MAXCHAR 1000
 enum category{meat, vegetables, fruit, carbohydrates, spices};
-<<<<<<< HEAD
-=======
 
 typedef struct Ingredient{
     char *name;
@@ -42,7 +40,41 @@ int main(void){
 return 0;
 }
 
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
+typedef struct Ingredient{
+    char *name;
+    int  amount;
+    enum cType;
+    char *unit;
+}Ingredient;
+
+/*prototype */
+void createIngredient(char *name, int amount);
+
+int main(void){    
+    char str[MAXCHAR];
+    Ingredient ingredient_name[255];
+
+    int i;
+
+    FILE *recipe = fopen("ingredients.txt", "r");
+
+    if(recipe == NULL){
+        printf("Could not open file %s", recipe);
+        return 1;
+    }    
+
+    while (fgets(str, MAXCHAR, recipe) != NULL){
+        printf("Read from file: %s\n", str);
+    }
+
+    for(i = 0; i <= 255; i++){
+        fscanf(recipe, "{\nname=\"%[^\"]\"\n kategori= %d \n}", ingredient_name[i].name, &cType);
+                printf("%s %d", ingredient_name[i].name, cType);
+    }
+    fclose(recipe);
+
+return 0;
+}
 
 typedef struct Ingredient{
     char *name;
@@ -87,10 +119,9 @@ Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_na
     int i, strcompare;
     Ingredient *tempIngArr = malloc(sizeof(Ingredient)*arrSize), ingredientOutput;
 
-<<<<<<< HEAD
+
     for(i = 0; i < arrSize; i++){
-=======
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
+
 void createIngredient(char *name, int amount){
     Ingredient newIngredient;
     
@@ -109,12 +140,14 @@ void createIngredient(char *name, int amount){
                 return ingredientOutput;
             }
     }
-<<<<<<< HEAD
+
 }
 
     return *tempIngArr;
 }
-=======
+
     return *tempIngArr;
 }
->>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
+    return *tempIngArr;
+}
+
