@@ -7,7 +7,7 @@ int randomGen(int max){
 
     if(max > 0){
         return (rand() % max);
-    } else{
+    }else{
         return 0;
     }
 }
