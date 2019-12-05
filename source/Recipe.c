@@ -45,27 +45,30 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 
 Recipe *readRecipes(){
     FILE *file = openFile("files/recipes.txt", "r");
-    char RecipeLine[100];
     int amount_of_recipes = countRecipes();
     printf("%d\n", amount_of_recipes);
     Recipe *recipes = malloc(sizeof(Recipe) * amount_of_recipes);
     for(int i = 0; !feof(file); i++){
         printf("What %d\n", i);
         recipes[i] = readRecipe(file);
+        printf("okay %d\n", i);
     }
     fclose(file);
     return NULL;
 }
 
 Recipe readRecipe(FILE *file){
-    Recipe recipe;
-    char name[30], unit[30];
+    Recipe recipe;  
+    char name[50], unit[30];
     double amount;
     fscanf(file, "{\n name=\"%[^\"]\";", name); /*Reads the name of the recipe*/
-
-    recipe.name = (char *) malloc(strlen(name) + 1);
-    strcpy(recipe.name, name);
-
+    printf("Dis%d\n", strlen(name)+1);
+    recipe.name = (char *) calloc(sizeof(char), strlen(name)+1); /*Why?*/
+    if(recipe.name == NULL){
+        printf("What the fuck");
+    }
+    printf("Made it here!");
+    strcpy(recipe.name, name);    
     recipe.amount_of_ingredients = countIngredientInRecipe(name);
     recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * recipe.amount_of_ingredients);
 
@@ -86,9 +89,6 @@ Recipe readRecipe(FILE *file){
     }
 
     printf("Recipe name: %s\n", recipe.name);
-    for(int i = 0; i < recipe.amount_of_ingredients; i++){
-        printf("Ingredient: %s %lf %s\n", recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
-    }
     return recipe;
 }
 

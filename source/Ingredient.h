@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-enum category{meat, vegetables, fruit, carbohydrates, spices};
+typedef enum category{MEAT, VEGETABLES, FRUIT, CARBOHYDRATES, SPICES}Category;
 
 typedef struct Ingredient{
     char *name;

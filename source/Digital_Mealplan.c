@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "FileHandler.h"
 #include "Recipe.h"
-#include "Ingredient.h"
 #include <time.h>
 
 int main(void){
