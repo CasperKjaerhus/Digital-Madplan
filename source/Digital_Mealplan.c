@@ -3,9 +3,11 @@
 #include "FileHandler.h"
 #include "Recipe.h"
 #include "Ingredient.h"
+#include <time.h>
 
 int main(void){
+    srand(time(NULL));
     
-    readRecipe();
+    readRecipes();
     return 0;
 }

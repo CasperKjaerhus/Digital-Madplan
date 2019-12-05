@@ -11,4 +11,5 @@ typedef struct Recipe{
     int amount_of_ingredients;
 } Recipe;
 
-Recipe readRecipe();
+Recipe *readRecipes();
+int countIngredientInRecipe(char *name);
