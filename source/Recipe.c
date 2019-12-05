@@ -45,14 +45,25 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 
 Recipe *readRecipes(){
     FILE *file = openFile("files/recipes.txt", "r");
-    Recipe recipe;
+    char RecipeLine[100];
+    int amount_of_recipes = countRecipes();
+    printf("%d\n", amount_of_recipes);
+    Recipe *recipes = malloc(sizeof(Recipe) * amount_of_recipes);
+    for(int i = 0; !feof(file); i++){
+        printf("What %d\n", i);
+        recipes[i] = readRecipe(file);
+    }
+    fclose(file);
+    return NULL;
+}
 
+Recipe readRecipe(FILE *file){
+    Recipe recipe;
     char name[30], unit[30];
     double amount;
-    
     fscanf(file, "{\n name=\"%[^\"]\";", name); /*Reads the name of the recipe*/
 
-    recipe.name = malloc(strlen(name));
+    recipe.name = (char *) malloc(strlen(name) + 1);
     strcpy(recipe.name, name);
 
     recipe.amount_of_ingredients = countIngredientInRecipe(name);
@@ -63,20 +74,22 @@ Recipe *readRecipes(){
     for(int i = 0; strncmp(line, "}", 1) != 0; i++){
         fgets(line, 100, file); /*Reads the whole line*/
         sscanf(line, "ingredient=\"%[^\"]\", amount=\"%lf\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
-        printf("i: %d\n", i);
         /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
-        /*recipe.ingredients[i].name = malloc(strlen(name)); */
+        recipe.ingredients[i].name = (char *) malloc(strlen(name) + 1);
+        strcpy(recipe.ingredients[i].name, name);
 
         recipe.ingredients[i].amount = amount;
+        
         
         recipe.ingredients[i].unit = (char *) malloc(strlen(unit) + 1);
         strcpy(recipe.ingredients[i].unit, unit);
     }
 
-    printf("name = %s\n", recipe.name);
-    printf("amount = %lf %s\n", recipe.ingredients[0].amount, recipe.ingredients[0].unit);
-    fclose(file);
-    return NULL;
+    printf("Recipe name: %s\n", recipe.name);
+    for(int i = 0; i < recipe.amount_of_ingredients; i++){
+        printf("Ingredient: %s %lf %s\n", recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+    }
+    return recipe;
 }
 
 /*This function counts how many ingredients a given recipe has*/
