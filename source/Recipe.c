@@ -4,11 +4,15 @@
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
+<<<<<<< HEAD
 
     if(max > 0){
         return (rand() % max);
     } else{
     if(max > 0){
+=======
+    if(max > 0){
+>>>>>>> fe114ef3dd46eba28d8df8f98fde0d3f6ba3c8fa
         return rand() % max;
     } else {
         return 0;
