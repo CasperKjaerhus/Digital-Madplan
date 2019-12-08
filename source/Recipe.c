@@ -12,6 +12,21 @@ int randomGen(int max){
     }
 }
 
+void freeRecipe(Recipe *recipe){
+    for(int i = 0; i < recipe->amount_of_ingredients; i++){
+        free(recipe->ingredients[i].name);
+        free(recipe->ingredients[i].unit);
+    }
+    free(recipe->ingredients);
+    free(recipe->name);
+}
+
+void freeRecipes(Recipe **recipes, int amount_of_recipes){
+    for(int i = 0; i < amount_of_recipes; i++)
+        freeRecipe(recipes[i]);
+    free(*recipes);
+}
+
 /*Function that returns a random recipe with a given ingredient*/
 Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
     int i, strcompare, j = 0, randnum;
@@ -43,22 +58,20 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 }
 
 
-Recipe *readRecipes(){
+Recipe *readRecipes(int *amount_of_recipes){
     FILE *file = openFile("files/recipes.txt", "r");
-    int amount_of_recipes = countRecipes();
-    printf("Found %d recipes!\n", amount_of_recipes);
-    Recipe *recipes = (Recipe *) chkMalloc(sizeof(Recipe) * amount_of_recipes, "Recipes");
+    *amount_of_recipes = countRecipes();
 
-    for(int i = 0; i < amount_of_recipes; i++){
+    Recipe *recipes = (Recipe *) chkMalloc(sizeof(Recipe) * *amount_of_recipes, "Recipes");
+
+    for(int i = 0; i < *amount_of_recipes; i++){
         fscanf(file, "{\n"); /*Ignore { syntax*/
         recipes[i] = readNextRecipe(&file);
-        
-        printRecipe(recipes[i]);
         fscanf(file, "}\n"); /*Ignore } syntax*/
     }
 
     fclose(file);
-    return NULL;
+    return recipes;
 }
 
 Recipe readNextRecipe(FILE **file){
@@ -94,9 +107,13 @@ void printRecipe(Recipe recipe){
         if(recipe.ingredients[i].amount != 0)
             printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
         else
-            printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);
-        
+            printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
     }
+}
+
+void printRecipes(Recipe *recipes, int amount_of_recipes){
+    for(int i = 0; i < amount_of_recipes; i++)
+        printRecipe(recipes[i]);
 }
 
 /*This function counts how many ingredients a given recipe has*/
