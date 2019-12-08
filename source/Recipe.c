@@ -91,7 +91,11 @@ void printRecipe(Recipe recipe){
     int i;
     printf("Name: %s\n", recipe.name);
     for(i = 0; i < recipe.amount_of_ingredients; i++){
-        printf("%d: %s %lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+        if(recipe.ingredients[i].amount != 0)
+            printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+        else
+            printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);
+        
     }
 }
 
