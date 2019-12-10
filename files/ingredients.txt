@@ -1,5 +1,3 @@
-files/ingredients.txt
-
 {
 name="Carrot"
 kategori="1"
