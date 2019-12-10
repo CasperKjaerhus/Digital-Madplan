@@ -41,3 +41,10 @@ void *chkMalloc(size_t size, char *allo_name){
     }
     return allo;
 }
+void *chkCalloc(size_t size, char *allo_name){
+    void *allo = calloc(size, 1);
+    if(allo == NULL){
+        printf("%s allokation returned NULL", allo_name);
+    }
+    return allo;
+}
