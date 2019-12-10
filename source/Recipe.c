@@ -207,5 +207,4 @@ int countRecipes(){
         exit(EXIT_FAILURE);
     }
     return opens;
-
 }
