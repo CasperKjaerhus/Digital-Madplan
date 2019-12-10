@@ -131,6 +131,33 @@ int countIngredientInRecipe(char *name){
     return 0;
 }
 
+int Number_of_matches(Recipe recipe1, Recipe recipe2){
+
+char str1[] = "recipe_1", str2[] = "recipe_2";
+
+int same_ingredients;
+
+same_ingredients = strcomp(recipe1.ingredients[], recipe2.ingredients[]);
+printf("there are %d of the same ingredients\n", same_ingredients);
+
+return same_ingredients;
+}
+
+/*This function counts how many ingredients a given recipe has*/
+int countIngredientInRecipe(char *name){
+    FILE *file = openFile("files/recipes.txt", "r");
+    char line[100];
+    int i;
+    while(fgets(line, 100, file) != NULL){
+        if(strstr(line, name) != NULL){ /*Skips all lines that don't include name*/
+            for(i = 0; strncmp(line, "}", 1) != 0; i++) /*Counts all lines until } is reached*/
+                fgets(line, 100, file);
+            return i-1; /*-1 so to not count the line with "}" in it*/
+        }
+    }
+    return 0;
+}
+
 int countRecipes(){
     FILE *file = openFile("files/recipes.txt", "r");
     char line[100];
@@ -148,4 +175,5 @@ int countRecipes(){
         exit(EXIT_FAILURE);
     }
     return opens;
+
 }
