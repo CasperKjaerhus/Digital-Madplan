@@ -12,7 +12,14 @@ int randomGen(int max){
     }
 }
 
-Recipe getWeightedRecipe(Recipe *recipe, int amount_of_recipes, Recipe *mealplan_recipes){
+/* Function that orders recipes relative to ingredients */
+Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned){
+    
+}
+
+/* Function that returns array of unused recipes */
+Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned){
+    Recipe *unplanned = chkMalloc(sizeof(Recipe) * amount_of_recipes, "Unplanned recipes");
     
 }
 

@@ -1,4 +1,5 @@
 #include "Mealplan.h"
+
 /* Function that generates a mealplan for 7 days */
 Recipe *GenerateMealplan(Recipe *recipes, int amount_of_recipes){
 
