@@ -12,6 +12,10 @@ typedef struct Recipe{
 } Recipe;
 
 Recipe *readRecipes();
+Recipe readNextRecipe(FILE **file);
 int countIngredientInRecipe(char *name);
-Recipe readRecipe(FILE *file);
 int countRecipes();
+void printRecipe(Recipe recipe);
+void freeRecipe(Recipe *recipe);
+void freeRecipes(Recipe **recipes, int amount_of_recipes);
+void printRecipes(Recipe *recipes, int amount_of_recipes);

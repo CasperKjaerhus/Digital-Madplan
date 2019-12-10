@@ -14,7 +14,7 @@ ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 {
 name="Spaghetti Bolognese";
-ingredient="Minced ground beef", amount="125", unit="Grams";
+ingredient="Spaghetti pasta", amount="100", unit="Grams";
 ingredient="Spaghetti pasta", amount="100", unit="Grams";
 ingredient="Crushed tomatoes", amount="0.5", unit="Cans";
 ingredient="Minced carrot", amount="100", unit="Grams";
@@ -34,7 +34,7 @@ ingredient="Sliced onion", amount="50", unit="Grams";
 ingredient="Iceberg salat", amount="50", unit="Grams";
 ingredient="Pickles", amount="40", unit="Grams";
 ingredient="Gouda cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="", unit="Pinches";
+ingredient="Salt and peber", amount="0", unit="Pinches";
 ingredient="Olive oil", amount="5", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
