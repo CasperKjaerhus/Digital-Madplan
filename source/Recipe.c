@@ -4,7 +4,7 @@
 
 /*Function that returns a random number. Used for get_recipe function*/
 int randomGen(int max){
-
+    
     if(max > 0){
         return (rand() % max);
     } else{

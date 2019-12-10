@@ -4,12 +4,8 @@
 #include "Ingredient.h"
 /*
 
-<<<<<<< HEAD
-Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_name){
-=======
 /*Function that searches for a ingredient char and finds the corresponding ingrendient struct*/
 /*Ingredient get_ing_struct(Ingredient *ingArray, int arrSize, char *ingredient_name){
->>>>>>> 548735baa28c36e91ef634871fbf8949a818c1d5
     int i, strcompare;
     Ingredient *tempIngArr = malloc(sizeof(Ingredient)*arrSize), ingredientOutput;
 
