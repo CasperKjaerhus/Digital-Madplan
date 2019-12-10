@@ -133,12 +133,12 @@ int countIngredientInRecipe(char *name){
 
 int Number_of_matches(Recipe recipe1, Recipe recipe2){
 
-char str1[] = "recipe_1", str2[] = "recipe_2";
+    char str1[] = "recipe_1", str2[] = "recipe_2";
 
-int same_ingredients;
+    int same_ingredients;
 
-same_ingredients = strcomp(recipe1.ingredients[], recipe2.ingredients[]);
-printf("there are %d of the same ingredients\n", same_ingredients);
+    same_ingredients = strcomp(recipe1.ingredients[], recipe2.ingredients[]);
+    printf("there are %d of the same ingredients\n", same_ingredients);
 
 return same_ingredients;
 }
@@ -175,5 +175,4 @@ int countRecipes(){
         exit(EXIT_FAILURE);
     }
     return opens;
-
 }
