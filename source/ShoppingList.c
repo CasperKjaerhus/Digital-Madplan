@@ -1,6 +1,5 @@
 #include "ShoppingList.h"
 #include "Recipe.h"
-#include "Ingredient.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -12,9 +11,8 @@ Shoppinglist *shopping_list(Recipe *recipe_input, int list_size){
        for(j = 0; j < recipe_input[i].amount_of_ingredients; j++){
           strcat(shop_list[i].ingredient_name, recipe_input[i].ingredients[j].name);
           strcat(shop_list[i].ingredient_name, ",");
+          shop_list[i].amount += recipe_input[i].amount_of_ingredients;
        }
-       shop_list[i].amount = recipe_input[i].amount_of_ingredients;
     }
-
     return shop_list;
 }
