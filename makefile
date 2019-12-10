@@ -1,7 +1,7 @@
 FLAGS=-Wall -pedantic
 
-Digital_Mealplan.exe: ./source/Digital_Mealplan.c compiled/FileHandler.o compiled/Recipe.o compiled/Ingredient.o
-	gcc compiled/FileHandler.o compiled/Recipe.o compiled/Ingredient.o source/Digital_Mealplan.c $(FLAGS) -o Digital_Mealplan.exe
+Digital_Mealplan.out: ./source/Digital_Mealplan.c compiled/FileHandler.o compiled/Recipe.o compiled/Ingredient.o
+	gcc compiled/FileHandler.o compiled/Recipe.o compiled/Ingredient.o source/Digital_Mealplan.c $(FLAGS) -o Digital_Mealplan.out
 compiled/FileHandler.o: source/FileHandler.c
 	gcc -c source/FileHandler.c $(FLAGS) -o compiled/FileHandler.o
 compiled/Recipe.o: source/Recipe.c
