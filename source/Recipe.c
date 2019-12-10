@@ -12,6 +12,10 @@ int randomGen(int max){
     }
 }
 
+Recipe getWeightedRecipe(Recipe *recipe, int amount_of_recipes, Recipe *mealplan_recipes){
+    
+}
+
 void freeRecipe(Recipe *recipe){
     for(int i = 0; i < recipe->amount_of_ingredients; i++){
         free(recipe->ingredients[i].name);
@@ -28,34 +32,10 @@ void freeRecipes(Recipe **recipes, int amount_of_recipes){
 }
 
 /*Function that returns a random recipe with a given ingredient*/
-Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
-    int i, strcompare, j = 0, randnum;
-    Recipe *recipeArray = (Recipe *) malloc(sizeof(Recipe)*amount);
-    Recipe recipeOutput;
-    Ingredient *ingred2 = (Ingredient *) malloc(sizeof(Ingredient)*amount);
-
-    /*For-loop that stores ingredients in an ingredient-type array*/
-    for(i = 0; i < amount; i++)
-            ingred2[i] = *recipelist[i].ingredients;
-
-    /*Checks if the ingredient matches ingredients in the recipe, stores them in a new recipe array if true*/
-    for(i = 0; i < amount; i++){
-        strcompare = strcmp(ingred.name, ingred2[i].name);
-            if(strcompare == 0){
-                recipeArray[j] = recipelist[i];
-                j++;
-            }
-    }
-
-    randnum = randomGen(j);
-
-    /*Random recipe is chosen, so mealplans dont get too similar*/
-    recipeOutput = recipeArray[randnum];
-
-    free(ingred2);
-    free(recipeArray);
-    return recipeOutput;
+Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
+    return recipes[randomGen(amount_of_recipes)];
 }
+
 
 
 Recipe *readRecipes(int *amount_of_recipes){
