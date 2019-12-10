@@ -12,12 +12,27 @@ int randomGen(int max){
     }
 }
 
+void freeRecipe(Recipe *recipe){
+    for(int i = 0; i < recipe->amount_of_ingredients; i++){
+        free(recipe->ingredients[i].name);
+        free(recipe->ingredients[i].unit);
+    }
+    free(recipe->ingredients);
+    free(recipe->name);
+}
+
+void freeRecipes(Recipe **recipes, int amount_of_recipes){
+    for(int i = 0; i < amount_of_recipes; i++)
+        freeRecipe(recipes[i]);
+    free(*recipes);
+}
+
 /*Function that returns a random recipe with a given ingredient*/
 Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
     int i, strcompare, j = 0, randnum;
-    Recipe *recipeArray = malloc(sizeof(Recipe)*amount);
+    Recipe *recipeArray = (Recipe *) malloc(sizeof(Recipe)*amount);
     Recipe recipeOutput;
-    Ingredient *ingred2 = malloc(sizeof(Ingredient)*amount);
+    Ingredient *ingred2 = (Ingredient *) malloc(sizeof(Ingredient)*amount);
 
     /*For-loop that stores ingredients in an ingredient-type array*/
     for(i = 0; i < amount; i++)
@@ -43,53 +58,62 @@ Recipe get_recipe(Ingredient ingred, Recipe *recipelist, int amount){
 }
 
 
-Recipe *readRecipes(){
+Recipe *readRecipes(int *amount_of_recipes){
     FILE *file = openFile("files/recipes.txt", "r");
-    int amount_of_recipes = countRecipes();
-    printf("%d\n", amount_of_recipes);
-    Recipe *recipes = malloc(sizeof(Recipe) * amount_of_recipes);
-    for(int i = 0; !feof(file); i++){
-        printf("What %d\n", i);
-        recipes[i] = readRecipe(file);
-        printf("okay %d\n", i);
+    *amount_of_recipes = countRecipes();
+
+    Recipe *recipes = (Recipe *) chkMalloc(sizeof(Recipe) * *amount_of_recipes, "Recipes");
+
+    for(int i = 0; i < *amount_of_recipes; i++){
+        fscanf(file, "{\n"); /*Ignore { syntax*/
+        recipes[i] = readNextRecipe(&file);
+        fscanf(file, "}\n"); /*Ignore } syntax*/
     }
+
     fclose(file);
-    return NULL;
+    return recipes;
 }
 
-Recipe readRecipe(FILE *file){
-    Recipe recipe;  
-    char name[50], unit[30];
-    double amount;
-    fscanf(file, "{\n name=\"%[^\"]\";", name); /*Reads the name of the recipe*/
-    printf("Dis%d\n", strlen(name)+1);
-    recipe.name = (char *) calloc(sizeof(char), strlen(name)+1); /*Why?*/
-    if(recipe.name == NULL){
-        printf("What the fuck");
+Recipe readNextRecipe(FILE **file){
+    int i;
+    char bufName[50], bufUnit[50], bufIngredientName[50];
+    Recipe recipe;
+
+    /*Scans the recipes name*/
+    fscanf(*file, "name=\"%[^\"]\";\n", bufName);
+    recipe.name = (char *) chkMalloc(strlen(bufName)+1, "recipe name");
+    strcpy(recipe.name, bufName);
+
+    /*Finds the amount of ingredients and creates the ingredient array*/
+    recipe.amount_of_ingredients = countIngredientInRecipe(recipe.name);
+    recipe.ingredients = chkMalloc(sizeof(Ingredient) * recipe.amount_of_ingredients, "Ingredient array");
+
+    /*Fills the ingredient array*/
+    for(i = 0; i < recipe.amount_of_ingredients; i++){
+        fscanf(*file, "ingredient=\"%[^\"]\", amount=\"%f\", unit=\"%[^\"]\";\n", bufIngredientName, &recipe.ingredients[i].amount, bufUnit);
+        recipe.ingredients[i].name = chkMalloc(strlen(bufIngredientName)+1, "Ingredient name");
+        recipe.ingredients[i].unit = chkMalloc(strlen(bufUnit)+1, "Ingredient unit");
+
+        strcpy(recipe.ingredients[i].name, bufIngredientName);
+        strcpy(recipe.ingredients[i].unit, bufUnit);
     }
-    printf("Made it here!");
-    strcpy(recipe.name, name);    
-    recipe.amount_of_ingredients = countIngredientInRecipe(name);
-    recipe.ingredients = (Ingredient *) malloc(sizeof(Ingredient) * recipe.amount_of_ingredients);
-
-    char line[100];
-    fgets(line, 100, file);
-    for(int i = 0; strncmp(line, "}", 1) != 0; i++){
-        fgets(line, 100, file); /*Reads the whole line*/
-        sscanf(line, "ingredient=\"%[^\"]\", amount=\"%lf\", unit=\"%[^\"]\";", name, &amount, unit); /*scans the data from the line*/
-        /*TODO: Actually insert the ingredient from list of ingredients into recipe by finding struct ingredient */
-        recipe.ingredients[i].name = (char *) malloc(strlen(name) + 1);
-        strcpy(recipe.ingredients[i].name, name);
-
-        recipe.ingredients[i].amount = amount;
-        
-        
-        recipe.ingredients[i].unit = (char *) malloc(strlen(unit) + 1);
-        strcpy(recipe.ingredients[i].unit, unit);
-    }
-
-    printf("Recipe name: %s\n", recipe.name);
     return recipe;
+}
+
+void printRecipe(Recipe recipe){
+    int i;
+    printf("Name: %s\n", recipe.name);
+    for(i = 0; i < recipe.amount_of_ingredients; i++){
+        if(recipe.ingredients[i].amount != 0)
+            printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+        else
+            printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
+    }
+}
+
+void printRecipes(Recipe *recipes, int amount_of_recipes){
+    for(int i = 0; i < amount_of_recipes; i++)
+        printRecipe(recipes[i]);
 }
 
 /*This function counts how many ingredients a given recipe has*/

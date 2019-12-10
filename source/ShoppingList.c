@@ -9,7 +9,7 @@ Shoppinglist *shopping_list(Recipe *recipe_input, int list_size){
     Shoppinglist *shop_list = malloc(sizeof(Shoppinglist)*list_size);
     
     for(i = 0; i < list_size; i++){
-       for(j = 0; j < recipe_input[i].amount_of_ingredients){
+       for(j = 0; j < recipe_input[i].amount_of_ingredients; j++){
           strcat(shop_list[i].ingredient_name, recipe_input[i].ingredients[j].name);
           strcat(shop_list[i].ingredient_name, ",");
        }
@@ -18,4 +18,3 @@ Shoppinglist *shopping_list(Recipe *recipe_input, int list_size){
 
     return shop_list;
 }
-

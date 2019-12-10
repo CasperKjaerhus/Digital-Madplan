@@ -5,8 +5,13 @@
 #include <time.h>
 
 int main(void){
+    int recipe_amount;
+    Recipe *recipes;
     srand(time(NULL));
 
-    readRecipes();
+    recipes = readRecipes(&recipe_amount);
+    printRecipes(recipes, recipe_amount);
+
+    freeRecipes(&recipes, recipe_amount);
     return 0;
 }
