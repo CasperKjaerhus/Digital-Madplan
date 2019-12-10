@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "FileHandler.h"
+#include "Mealplan.h"
 #include "Recipe.h"
 #include <time.h>
 #define WEEK 7
