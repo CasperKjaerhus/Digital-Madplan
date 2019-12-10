@@ -33,3 +33,11 @@ FILE *openFile(char *fileLocation, char *mode){
 
     return file;
 }
+
+void *chkMalloc(size_t size, char *allo_name){
+    void *allo = malloc(size);
+    if(allo == NULL){
+        printf("%s allokation returned NULL", allo_name);
+    }
+    return allo;
+}
