@@ -1,3 +1,5 @@
 {
 name="Shakshuka"
-ingredient="Onion", amount="0", unit="
+ingredient="Onion", amount="0", unit="{
+name="Nordic curry stew"
+ingredient="Red lentils", amount="0", unit="

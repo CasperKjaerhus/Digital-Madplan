@@ -6,7 +6,7 @@ ingredient="Tomatoes", amount="0.5", unit="Cans";
 ingredient="Onion", amount="50", unit="Grams";
 ingredient="Carrot", amount="100", unit="Grams";
 ingredient="Garlic", amount="2", unit="Cloves";
-ingredient="Vegtable stock", amount="50", unit="Milliliters";
+ingredient="Vegetable stock", amount="50", unit="Milliliters";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Mozzarella cheese", amount="25", unit="Gram";
 ingredient="Salt and peber", amount="0", unit="To taste";
@@ -33,7 +33,7 @@ ingredient="Onion", amount="50", unit="Grams";
 ingredient="Iceberg salad", amount="50", unit="Grams";
 ingredient="Pickles", amount="40", unit="Grams";
 ingredient="Gouda cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="Pinches";
+ingredient="Salt and peber", amount="0", unit="To taste";
 ingredient="Olive oil", amount="5", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
@@ -109,7 +109,7 @@ ingredient="Tandoori spice", amount="3.5", unit="Grams";
 ingredient="Ketjap manis", amount="0", unit="To taste";
 }
 {
-name="End of the Week salad with grilled chicken";
+name="Salad with grilled chicken";
 ingredient="Lemon juice", amount="2", unit="Milliliters";
 ingredient="Creme fraiche", amount="25", unit="Milliliters";
 ingredient="Garlic", amount="1", unit="Clove";
