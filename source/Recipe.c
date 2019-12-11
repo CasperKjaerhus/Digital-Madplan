@@ -71,30 +71,6 @@ Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_rec
     return unplanned; 
 }
 
-/*This function copies a recipe and all its data to another recipe*/
-void cpyRecipe(Recipe *target, Recipe *source){
-    /*allocates space for name and copies it*/
-    target->name = chkMalloc(strlen(source->name), "cpy Recipe name");
-    strcpy(target->name, source->name);
-    /*Copies the ints*/
-    target->calories = source->calories;
-    target->amount_of_ingredients = source->amount_of_ingredients;
-
-    /*Makes space for all the ingredients*/
-    target->ingredients = chkMalloc(sizeof(Ingredient) * source->amount_of_ingredients, "cpyRecipe");
-
-    /*Copies the ingredient data one by one from source to target*/
-    for(int i = 0; i < source->amount_of_ingredients; i++){
-        target->ingredients[i].name = chkMalloc(strlen(source->name), "cpyRecipe ingredient name");
-        strcpy(target->ingredients[i].name, source->ingredients[i].name);
-
-        target->ingredients[i].amount = source->ingredients[i].amount;
-
-        target->ingredients[i].unit = chkMalloc(strlen(source->ingredients[i].unit), "cpyRecipe ingredient unit");
-        strcpy(target->ingredients[i].unit, source->ingredients[i].unit);
-    }
-}
-
 int calcIngredientMatches(Recipe recipe1, Recipe recipe2){
     int count = 0;
     for(int i = 0; i < recipe1.amount_of_ingredients; i++){
@@ -117,8 +93,9 @@ void freeRecipe(Recipe *recipe){
 }
 
 void freeRecipes(Recipe **recipes, int amount_of_recipes){
-    for(int i = 0; i < amount_of_recipes; i++)
+    for(int i = 0; i < amount_of_recipes; i++){
         freeRecipe(recipes[i]);
+    }
     free(*recipes);
 }
 

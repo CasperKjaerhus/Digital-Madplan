@@ -18,31 +18,29 @@ int main(void){
     //printRecipes(recipes, recipe_amount);
     
     while(n == 0||n == 1|| n == 2){
-    printf("Mealplan Generator\n");
-    printf("Choose one of the following two options:\n");
-    printf("Press 1 to create a new Mealplan.\n");
-    printf("Press 2 to access your previous Mealplan.\n");
-    scanf("%d", &n);
+        printf("Mealplan Generator\n");
+        printf("Choose an option:\n");
+        printf("1) to create a new Mealplan.\n");
+        printf("2) to access your previous Mealplan.\n");
+        scanf(" %d", &n);
 
-    if(n == 1){
-        mealplan = GenerateMealplan(recipes, recipe_amount);
-        printRecipes(mealplan, mealplan_recipe_amount);
-        recipe_to_file(mealplan, mealplan_recipe_amount);
-    }
-    else if(n == 2){
-        mealplan_recipe_amount = 0;
-         mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-         printf("WHAT: %d", mealplan_recipe_amount);
-         printRecipes(mealplan, mealplan_recipe_amount);
-    }
-    else
-        printf("Invalid input");
+        if(n == 1){
+            mealplan = GenerateMealplan(recipes, recipe_amount);
+            printRecipes(mealplan, mealplan_recipe_amount);
+            recipe_to_file(mealplan, mealplan_recipe_amount);
+        }
+        else if(n == 2){
+            mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
+            printRecipes(mealplan, mealplan_recipe_amount);
+        }
+        else
+            printf("Invalid input");
     }
    
     
 
     
 
-    freeRecipes(&mealplan, 7);
+    freeRecipes(&mealplan, mealplan_recipe_amount);
     freeRecipes(&recipes, recipe_amount);
 }
