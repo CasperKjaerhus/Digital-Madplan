@@ -15,7 +15,6 @@ ingredient="Italian seasoning", amount="0", unit="To taste";
 {
 name="Spaghetti Bolognese";
 ingredient="Spaghetti pasta", amount="100", unit="Grams";
-ingredient="Spaghetti pasta", amount="100", unit="Grams";
 ingredient="Crushed tomatoes", amount="0.5", unit="Cans";
 ingredient="Minced carrot", amount="100", unit="Grams";
 ingredient="Minced onion", amount="50", unit="Grams";
@@ -70,7 +69,7 @@ ingredient="Toasted rye bread", amount="60", unit="Gram";
 name="Tortillas with Grilled Chicken";
 ingredient="Tortillas", amount="2", unit="Pieces";
 ingredient="Chicken fillets", amount="125", unit="Grams";
-ingredient="Tomato puré", amount="1", unit="can";
+ingredient="Tomato pure", amount="1", unit="can";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
 ingredient="Paprika", amount="1.5", unit="Grams";
 ingredient="Cayenne", amount="1.5", unit="Grams";

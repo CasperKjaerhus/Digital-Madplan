@@ -8,13 +8,14 @@
 
 
 int main(void){
-    int recipe_amount, i;
+    int recipe_amount;
     Recipe *recipes;
+    Recipe *mealplan;
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount);
-    printRecipes(recipes, recipe_amount);
-
+    mealplan = GenerateMealplan(recipes, recipe_amount);
+    printRecipes(recipes, recipe_amount);   
 
     freeRecipes(&recipes, recipe_amount);
     return 0;
