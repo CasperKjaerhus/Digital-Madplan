@@ -4,17 +4,16 @@
 #include "Mealplan.h"
 #include "Recipe.h"
 #include <time.h>
+#define WEEK 7
+
 
 int main(void){
-    int recipe_amount;
+    int recipe_amount, i;
     Recipe *recipes;
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount);
     printRecipes(recipes, recipe_amount);
-    
-    GenerateMealplan(recipes, recipe_amount);
-    
 
 
     freeRecipes(&recipes, recipe_amount);

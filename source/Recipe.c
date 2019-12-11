@@ -1,26 +1,98 @@
 #include "Recipe.h"
-#include <string.h>
-#include <stdlib.h>
 
-/*Function that returns a random number. Used for get_recipe function*/
-int randomGen(int max){
-    
-    if(max > 0){
-        return (rand() % max);
-    } else{
-        return 0;
-    }
+
+
+/* 
+ * Gets random number from a to b, 
+ * these values are inclusive 
+ * Assumes that a is smaller than b
+ */
+int get_random_number(int a, int b){
+    return (rand() % (b+1 - a)) + a;
 }
 
 /* Function that orders recipes relative to ingredients */
-Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned){
+Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned_recipes, int amount_of_already_planned){
+    int amount_unused, highest_match = 0, return_index = 0;
+    Recipe *Unused_recipes = dif_recipes(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned, &amount_unused);
+    int *matches = (int *) chkCalloc(sizeof(int) * amount_unused, "getWeightedRecipe matches");
+    Recipe returnRecipe;
     
+    for(int i = 0; i < amount_unused; i++){
+        for(int j = 0; j < amount_of_already_planned; j++){
+            matches[i] += calcIngredientMatches(Unused_recipes[i], planned_recipes[j]);
+        }
+        matches[i] *= MATCH_WEIGHT; /*This increases the "match score" higher so a higher score weighs higher in final calculation*/
+    }
+    /*Calculates a random recipe from a pseudorandom number with a weighted score
+      aka: dishes with more ingredients common are more likely but not guaranteed!*/
+    for(int i = 0; i < amount_unused; i++){
+        int WeightedRandom = get_random_number(0, 50 + matches[i]);
+        highest_match = WeightedRandom > highest_match ? WeightedRandom : highest_match;
+        return_index = WeightedRandom > highest_match ? i : return_index;
+    }
+    returnRecipe = Unused_recipes[return_index];
+    free(matches);
+    free(Unused_recipes);
+
+    return returnRecipe;
+
+
 }
 
 /* Function that returns array of unused recipes */
-Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned){
+Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned, int *amount_unused){
     Recipe *unplanned = chkMalloc(sizeof(Recipe) * amount_of_recipes, "Unplanned recipes");
-    
+    int isPlanned, index = 0;
+    for(int i = 0; i < amount_of_recipes; i++){
+        isPlanned = 0;
+        for(int j = 0; j < amount_of_already_planned; j++){
+            if(strcmp(recipes[i].name, mealplan_recipes[j].name) == 0){
+                isPlanned = 1;
+            }
+        }
+        if(isPlanned == 0){
+            unplanned[index++] = recipes[i];
+        }
+    }
+    *amount_unused = index;
+    return unplanned; 
+}
+
+/*This function copies a recipe and all its data to another recipe*/
+void cpyRecipe(Recipe *target, Recipe *source){
+    /*allocates space for name and copies it*/
+    target->name = chkMalloc(strlen(source->name), "cpy Recipe name");
+    strcpy(target->name, source->name);
+    /*Copies the ints*/
+    target->calories = source->calories;
+    target->amount_of_ingredients = source->amount_of_ingredients;
+
+    /*Makes space for all the ingredients*/
+    target->ingredients = chkMalloc(sizeof(Ingredient) * source->amount_of_ingredients, "cpyRecipe");
+
+    /*Copies the ingredient data one by one from source to target*/
+    for(int i = 0; i < source->amount_of_ingredients; i++){
+        target->ingredients[i].name = chkMalloc(strlen(source->name), "cpyRecipe ingredient name");
+        strcpy(target->ingredients[i].name, source->ingredients[i].name);
+
+        target->ingredients[i].amount = source->ingredients[i].amount;
+
+        target->ingredients[i].unit = chkMalloc(strlen(source->ingredients[i].unit), "cpyRecipe ingredient unit");
+        strcpy(target->ingredients[i].unit, source->ingredients[i].unit);
+    }
+}
+
+int calcIngredientMatches(Recipe recipe1, Recipe recipe2){
+    int count = 0;
+    for(int i = 0; i < recipe1.amount_of_ingredients; i++){
+        for(int j = 0; j < recipe2.amount_of_ingredients; j++){
+            if(strcmp(recipe1.ingredients[i].name, recipe2.ingredients[j].name) == 0){
+                count++;
+            }
+        }
+    }
+    return count;
 }
 
 void freeRecipe(Recipe *recipe){
@@ -40,7 +112,7 @@ void freeRecipes(Recipe **recipes, int amount_of_recipes){
 
 /*Function that returns a random recipe with a given ingredient*/
 Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
-    return recipes[randomGen(amount_of_recipes)];
+    return recipes[get_random_number(0, amount_of_recipes)];
 }
 
 
@@ -90,34 +162,18 @@ Recipe readNextRecipe(FILE **file){
 void printRecipe(Recipe recipe){
     int i;
     printf("Name: %s\n", recipe.name);
-    for(i = 0; i < recipe.amount_of_ingredients; i++){
+    /*for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)
             printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
         else
             printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
-    }
+    }*/
 }
 
 void printRecipes(Recipe *recipes, int amount_of_recipes){
     for(int i = 0; i < amount_of_recipes; i++)
         printRecipe(recipes[i]);
 }
-
-/*This function counts how many ingredients a given recipe has*/
-int countIngredientInRecipe(char *name){
-    FILE *file = openFile("files/recipes.txt", "r");
-    char line[100];
-    int i;
-    while(fgets(line, 100, file) != NULL){
-        if(strstr(line, name) != NULL){ /*Skips all lines that don't include name*/
-            for(i = 0; strncmp(line, "}", 1) != 0; i++) /*Counts all lines until } is reached*/
-                fgets(line, 100, file);
-            return i-1; /*-1 so to not count the line with "}" in it*/
-        }
-    }
-    return 0;
-}
-
 
 /*This function counts how many ingredients a given recipe has*/
 int countIngredientInRecipe(char *name){
@@ -151,18 +207,4 @@ int countRecipes(){
         exit(EXIT_FAILURE);
     }
     return opens;
-
-}
-
-char *shoplist(Recipe *recipeArrInput, int arrSize){
-    int i, j;
-    char *shoplist;
-
-    for(i = 0; i < arrSize){
-        for(j = 0; j < recipeArrInput[i].amount_of_ingredients)
-            strcat(shoplist, recipeArrInput[i].ingredients[j].name)
-            strcat(shoplist, ", ");
-    }
-
-    return shoplist;
 }

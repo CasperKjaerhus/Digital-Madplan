@@ -1,4 +1,5 @@
 *.exe
-*.o 
+*.o
+*.out
 compiled/
 .vscode/
