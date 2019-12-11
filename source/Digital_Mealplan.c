@@ -8,13 +8,13 @@
 
 
 int main(void){
-    int recipe_amount;
+    int recipe_amount, mealplan_recipe_amount = 7;
     int n = 0;
     Recipe *recipes;
     Recipe *mealplan;
     srand(time(NULL));
 
-    recipes = readRecipes(&recipe_amount);
+    recipes = readRecipes(&recipe_amount, "files/recipes.txt");
     //printRecipes(recipes, recipe_amount);
     
     while(n == 0||n == 1|| n == 2){
@@ -26,11 +26,14 @@ int main(void){
 
     if(n == 1){
         mealplan = GenerateMealplan(recipes, recipe_amount);
-        printRecipes(mealplan, 7);
-        recipe_to_file(mealplan, 7);
+        printRecipes(mealplan, mealplan_recipe_amount);
+        recipe_to_file(mealplan, mealplan_recipe_amount);
     }
     else if(n == 2){
-         /*TO DO, SCAN MEALPLANFILE*/
+        mealplan_recipe_amount = 0;
+         mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
+         printf("WHAT: %d", mealplan_recipe_amount);
+         printRecipes(mealplan, mealplan_recipe_amount);
     }
     else
         printf("Invalid input");

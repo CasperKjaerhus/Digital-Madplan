@@ -129,9 +129,9 @@ Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
 
 
 
-Recipe *readRecipes(int *amount_of_recipes){
-    FILE *file = openFile("files/recipes.txt", "r");
-    *amount_of_recipes = countRecipes();
+Recipe *readRecipes(int *amount_of_recipes, char *filePlace){
+    FILE *file = openFile(filePlace, "r");
+    *amount_of_recipes = countRecipes(filePlace);
 
     Recipe *recipes = (Recipe *) chkMalloc(sizeof(Recipe) * *amount_of_recipes, "Recipes");
 
@@ -203,8 +203,8 @@ int countIngredientInRecipe(char *name){
     return 0;
 }
 
-int countRecipes(){
-    FILE *file = openFile("files/recipes.txt", "r");
+int countRecipes(char *filePlace){
+    FILE *file = openFile(filePlace, "r");
     char line[100];
     int opens = 0, closes = 0;
     while(!feof(file)){
@@ -216,7 +216,7 @@ int countRecipes(){
     }
 
     if(opens != closes){
-        printf("Error: files/recipes.txt syntax error, missing \"{\" or \"}\"");
+        printf("Error: %s syntax error, missing \"{\" or \"}\"", filePlace);
         exit(EXIT_FAILURE);
     }
     return opens;
