@@ -25,6 +25,7 @@ Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_rec
 int countIngredientInRecipe(char *name);
 int countRecipes();
 int get_random_number(int a, int b);
+int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes);
 void printRecipe(Recipe recipe);
 void freeRecipe(Recipe *recipe);
 void freeRecipes(Recipe **recipes, int amount_of_recipes);

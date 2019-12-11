@@ -1,7 +1,4 @@
 #include "Recipe.h"
-
-
-
 /* 
  * Gets random number from a to b, 
  * these values are inclusive 
@@ -10,6 +7,15 @@
 int get_random_number(int a, int b){
     return (rand() % (b+1 - a)) + a;
 }
+
+int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
+    int amount = 0;
+    for(int i = 0; i < amount_of_recipes; i++){
+        amount += recipes[i].amount_of_ingredients;
+    }
+    return amount;
+}
+
 
 /* Function that orders recipes relative to ingredients */
 Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned_recipes, int amount_of_already_planned){
@@ -24,14 +30,20 @@ Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned
         }
         matches[i] *= MATCH_WEIGHT; /*This increases the "match score" higher so a higher score weighs higher in final calculation*/
     }
-    /*Calculates a random recipe from a pseudorandom number with a weighted score
+
+    /*Calculates a pseudorandom recipe from a pseudorandom number with a weighted score
       aka: dishes with more ingredients common are more likely but not guaranteed!*/
     for(int i = 0; i < amount_unused; i++){
-        int WeightedRandom = get_random_number(0, 50 + matches[i]);
-        highest_match = WeightedRandom > highest_match ? WeightedRandom : highest_match;
-        return_index = WeightedRandom > highest_match ? i : return_index;
+        int WeightedRandom = get_random_number(0, 50 + matches[i]); /*This generates a random number between zero and 50 + whatever the corrospondings recipe has "scored"*/
+        if(WeightedRandom > highest_match){
+            return_index = i;
+            highest_match = WeightedRandom;
+        }
     }
+
     returnRecipe = Unused_recipes[return_index];
+
+
     free(matches);
     free(Unused_recipes);
 
@@ -162,12 +174,12 @@ Recipe readNextRecipe(FILE **file){
 void printRecipe(Recipe recipe){
     int i;
     printf("Name: %s\n", recipe.name);
-    for(i = 0; i < recipe.amount_of_ingredients; i++){
+    /*for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)
             printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
         else
             printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
-    }
+    }*/
 }
 
 void printRecipes(Recipe *recipes, int amount_of_recipes){
