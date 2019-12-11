@@ -15,7 +15,7 @@ int main(void){
 
     recipes = readRecipes(&recipe_amount);
     mealplan = GenerateMealplan(recipes, recipe_amount);
-    printRecipes(recipes, recipe_amount);   
+    printRecipes(mealplan, 7);   
 
     freeRecipes(&recipes, recipe_amount);
     return 0;
