@@ -153,3 +153,16 @@ int countRecipes(){
     return opens;
 
 }
+
+char *shoplist(Recipe *recipeArrInput, int arrSize){
+    int i, j;
+    char *shoplist;
+
+    for(i = 0; i < arrSize){
+        for(j = 0; j < recipeArrInput[i].amount_of_ingredients)
+            strcat(shoplist, recipeArrInput[i].ingredients[j].name)
+            strcat(shoplist, ", ");
+    }
+
+    return shoplist;
+}
