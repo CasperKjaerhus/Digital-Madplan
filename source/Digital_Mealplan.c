@@ -14,12 +14,13 @@ int main(void){
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount);
+    //printRecipes(recipes, recipe_amount);
+
     mealplan = GenerateMealplan(recipes, recipe_amount);
-    printf("whatthefuck\n");
+    printRecipes(mealplan, 7);
 
-    printf("whatthefuck");
     recipe_to_file(mealplan, 7);
-    printf("whatthefuck2");
 
+    freeRecipes(&mealplan, 7);
     freeRecipes(&recipes, recipe_amount);
 }

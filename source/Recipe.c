@@ -174,20 +174,18 @@ Recipe readNextRecipe(FILE **file){
 void printRecipe(Recipe recipe){
     int i;
     printf("Name: %s\n", recipe.name);
-    /*for(i = 0; i < recipe.amount_of_ingredients; i++){
+    for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)
-            printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+            printf("%d: %s %.1lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
         else
             printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
-    }*/
+    }
 }
 
 void printRecipes(Recipe *recipes, int amount_of_recipes){
     for(int i = 0; i < amount_of_recipes; i++){
         printRecipe(recipes[i]);
-        printf("hmm");
     }
-    printf("done");
 }
 
 /*This function counts how many ingredients a given recipe has*/
