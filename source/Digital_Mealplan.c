@@ -15,8 +15,11 @@ int main(void){
 
     recipes = readRecipes(&recipe_amount);
     mealplan = GenerateMealplan(recipes, recipe_amount);
-    printRecipes(mealplan, 7);   
+    printf("whatthefuck\n");
+
+    printf("whatthefuck");
+    recipe_to_file(mealplan, 7);
+    printf("whatthefuck2");
 
     freeRecipes(&recipes, recipe_amount);
-    return 0;
 }

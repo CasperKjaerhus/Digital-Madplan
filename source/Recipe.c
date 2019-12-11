@@ -183,8 +183,11 @@ void printRecipe(Recipe recipe){
 }
 
 void printRecipes(Recipe *recipes, int amount_of_recipes){
-    for(int i = 0; i < amount_of_recipes; i++)
+    for(int i = 0; i < amount_of_recipes; i++){
         printRecipe(recipes[i]);
+        printf("hmm");
+    }
+    printf("done");
 }
 
 /*This function counts how many ingredients a given recipe has*/

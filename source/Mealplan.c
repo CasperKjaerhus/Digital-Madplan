@@ -14,3 +14,19 @@ Recipe *GenerateMealplan(Recipe *recipes, int amount_of_recipes){
 
     return mealplan;
 }
+
+void recipe_to_file(Recipe *recipes, int amount_of_recipes){
+    printf("file printed");
+    FILE *mealplanTofile = openFile("files/printmealplan.txt", "a+");
+    printf("file printed");
+    for(int i = 0; i < amount_of_recipes; i++){
+        printf("file printed");
+        fprintf(mealplanTofile, "{\nname=\"%s\"\n", recipes[i].name);
+        for(int j = 0; j < recipes[i].amount_of_ingredients; j++){
+            fprintf(mealplanTofile, "ingredient=\"%s\", amount=\"%d\", unit=\"%s\"\n", recipes[i].ingredients[j].name, recipes[i].ingredients[j].amount, recipes[i].ingredients[j].unit);
+        }
+        fprintf(mealplanTofile, "}\n"); 
+    }
+    printf("file printed");
+    fclose(mealplanTofile);
+}
