@@ -9,7 +9,7 @@ ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Vegetable stock", amount="50", unit="Milliliters";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Mozzarella cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 {
@@ -21,7 +21,7 @@ ingredient="Minced onion", amount="50", unit="Grams";
 ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Parmesan cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Italian seasoning", amount="0", unit="To taste";
 }
 {
@@ -33,7 +33,7 @@ ingredient="Onion", amount="50", unit="Grams";
 ingredient="Iceberg salad", amount="50", unit="Grams";
 ingredient="Pickles", amount="40", unit="Grams";
 ingredient="Gouda cheese", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Olive oil", amount="5", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
@@ -49,19 +49,19 @@ ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
 ingredient="Ground cumin", amount="5", unit="Grams";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Red kuri squash soup";
 ingredient="Red kuri squash", amount="200", unit="Grams";
-ingredient="Potato", amount="125", unit="Grams";
+ingredient="Potatoes", amount="125", unit="Grams";
 ingredient="Vegetable stock", amount="50", unit="Milliliters";
 ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Parsley", amount="2", unit="Stalks";
 ingredient="Thime", amount="2", unit="Stalks";
 ingredient="Creme fraiche", amount="50", unit="Milliliters";
 ingredient="Wine vinegar", amount="4", unit="Milliliters";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Toasted rye bread", amount="60", unit="Gram";
 }
 {
@@ -77,7 +77,7 @@ ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Chopped red bell pepper", amount="15", unit="Grams";
 ingredient="Black beans", amount="60", unit="Grams";
 ingredient="Avocado", amount="75", unit="Grams";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Baked Cod with Vegetables";
@@ -85,14 +85,14 @@ ingredient="Cod fillets (fresh/frozen)", amount="125", unit="Grams";
 ingredient="Cauliflower", amount="75", unit="Grams";
 ingredient="Edamame beans", amount="50", unit="Grams";
 ingredient="Carrots", amount="50", unit="Grams";
-ingredient="Potato", amount="200", unit="Grams";
+ingredient="Potatoes", amount="200", unit="Grams";
 ingredient="Boiling water", amount="275", unit="Milliliters";
 ingredient="Vegetable stock", amount="25", unit="Milliliters";
 ingredient="Butter", amount="6.5", unit="Grams";
 ingredient="Fresh chili", amount="5", unit="Grams";
 ingredient="Thime", amount="2", unit="Stalks";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Sweet 'n' Sour Noodles With Tiger Prawns";
@@ -120,7 +120,7 @@ ingredient="Cherry tomatoes", amount="40", unit="Gram";
 ingredient="Avocado", amount="40", unit="Grams";
 ingredient="Toasted rye bread", amount="60", unit="Gram";
 ingredient="Olive oil", amount="6", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Grilled tiger prawns with tomato soup";
@@ -130,10 +130,10 @@ ingredient="Fresh chili", amount="2.5", unit="Gram";
 ingredient="Garlic", amount="1", unit="clove";
 ingredient="Cherry tomatoes", amount="200", unit="Grams";
 ingredient="Carrots", amount="75", unit="Gram";
-ingredient="Potatos", amount="50", unit="Gram";
+ingredient="Potatoes", amount="50", unit="Gram";
 ingredient="Creme fraiche", amount="25", unit="Milliliters";
 ingredient="Vegetable stock", amount="25", unit="Milliliters";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Toasted ryebread sandwich with chicken and greens";
@@ -145,7 +145,7 @@ ingredient="Mozzarella", amount="20", unit="Gram";
 ingredient="Gouda cheese", amount="20", unit="Gram";
 ingredient="Iceberg salad", amount="25", unit="Gram";
 ingredient="Cherry tomatoes", amount="25", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Shakshuka";
@@ -158,7 +158,7 @@ ingredient="Eggs", amount="2", unit="Egg(s)";
 ingredient="Paprika", amount="4", unit="Gram";
 ingredient="Ground koriander", amount="3", unit="Gram";
 ingredient="Ground cumin", amount="3", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Olive oil", amount="6", unit="Gram";
 ingredient="Bread of own choice", amount="60", unit="Gram";
 }
@@ -176,7 +176,7 @@ ingredient="Edamame beans", amount="40", unit="Grams";
 ingredient="Cherry tomatoes", amount="50", unit="Gram";
 ingredient="Salmon", amount="75", unit="Gram";
 ingredient="Olive oil", amount="6", unit="Gram";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
 name="Salmon with roast potatoes";
@@ -184,7 +184,7 @@ ingredient="Butter", amount="100", unit="Gram";
 ingredient="Water", amount="13", unit="Milliliters";
 ingredient="Egg yolk", amount="1", unit="Yolk";
 ingredient="Lemon juice", amount="2", unit="Milliliters";
-ingredient="Salt and peber", amount="0", unit="To taste";
+ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Salmon", amount="75", unit="Gram";
 ingredient="Potatoes", amount="100", unit="Gram";
 ingredient="Thime", amount="2", unit="Stalks";
