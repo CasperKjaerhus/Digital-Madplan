@@ -172,7 +172,7 @@ Recipe readNextRecipe(FILE **file){
 }
 
 void printRecipe(Recipe recipe){
-    int i;
+    //int i;
     printf("Name: %s\n", recipe.name);
     /*for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)

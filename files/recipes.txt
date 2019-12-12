@@ -54,7 +54,7 @@ ingredient="Salt and peber", amount="0", unit="To taste";
 {
 name="Red kuri squash soup";
 ingredient="Red kuri squash", amount="200", unit="Grams";
-ingredient="Potato", amount="125", unit="Grams";
+ingredient="Potatoes", amount="125", unit="Grams";
 ingredient="Vegetable stock", amount="50", unit="Milliliters";
 ingredient="Garlic", amount="2", unit="Cloves";
 ingredient="Parsley", amount="2", unit="Stalks";
@@ -130,7 +130,7 @@ ingredient="Fresh chili", amount="2.5", unit="Gram";
 ingredient="Garlic", amount="1", unit="clove";
 ingredient="Cherry tomatoes", amount="200", unit="Grams";
 ingredient="Carrots", amount="75", unit="Gram";
-ingredient="Potatos", amount="50", unit="Gram";
+ingredient="Potatoes", amount="50", unit="Gram";
 ingredient="Creme fraiche", amount="25", unit="Milliliters";
 ingredient="Vegetable stock", amount="25", unit="Milliliters";
 ingredient="Salt and peber", amount="0", unit="To taste";

@@ -4,6 +4,7 @@
 #include "Mealplan.h"
 #include "Recipe.h"
 #include <time.h>
+#include "ShoppingList.h"
 #define WEEK 7
 
 
@@ -15,8 +16,12 @@ int main(void){
 
     recipes = readRecipes(&recipe_amount);
     mealplan = GenerateMealplan(recipes, recipe_amount);
-    printRecipes(mealplan, 7);   
+    printRecipes(mealplan, 7);
 
+    printf("\n\n");
+
+    print_shoppinglist(mealplan, 7);
+       
     freeRecipes(&recipes, recipe_amount);
     return 0;
 }
