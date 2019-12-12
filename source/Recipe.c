@@ -23,7 +23,7 @@ Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned
     Recipe *Unused_recipes = dif_recipes(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned, &amount_unused);
     int *matches = (int *) chkCalloc(sizeof(int) * amount_unused, "getWeightedRecipe matches");
     Recipe returnRecipe;
-    
+
     for(int i = 0; i < amount_unused; i++){
         for(int j = 0; j < amount_of_already_planned; j++){
             matches[i] += calcIngredientMatches(Unused_recipes[i], planned_recipes[j]);
@@ -149,7 +149,7 @@ Recipe readNextRecipe(FILE **file){
 }
 
 void printRecipe(Recipe recipe){
-    int i;
+    //int i;
     printf("Name: %s\n", recipe.name);
     for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)
