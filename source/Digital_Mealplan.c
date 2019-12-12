@@ -10,37 +10,40 @@
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int i, n = 0;
+    int i, j,n = 0, people = 1, p;
     char m;
     Recipe *recipes;
     Recipe *mealplan;
 
     srand(time(NULL));
 
-    recipes = readRecipes(&recipe_amount);
+    /*recipes = readRecipes(&recipe_amount);
     mealplan = GenerateMealplan(recipes, recipe_amount);
     printRecipes(mealplan, 7);
 
     printf("\n\n");
 
-    freeRecipes(&mealplan, mealplan_recipe_amount);
-    freeRecipes(&recipes, recipe_amount);
-
-}
-   /* print_shoppinglist(mealplan, 7);
+    print_shoppinglist(mealplan, 7);*/
        
     recipes = readRecipes(&recipe_amount, "files/recipes.txt");
-    //printRecipes(recipes, recipe_amount);
+    /*printRecipes(recipes, recipe_amount); */
     
     while(n == 0||n == 1|| n == 2){
         printf("Mealplan Generator\n");
         printf("Choose an option:\n");
-        printf("1) to create a new Mealplan.\n");
-        printf("2) to access your previous Mealplan.\n");
+        printf("1) To create a new Mealplan.\n");
+        printf("2) To access your previous Mealplan.\n");
         scanf(" %d", &n);
 
         if(n == 1){
+            printf("How many people are the mealplan for?");
+            scanf(" %d", &people);
             mealplan = GenerateMealplan(recipes, recipe_amount);
+            for(j = 0; j < 7; j++){
+                for(p = 0; p < mealplan[j].amount_of_ingredients; p++){
+                    mealplan[j].ingredients[p].amount = mealplan[j].ingredients[p].amount * people;
+                }
+            }
             printRecipes(mealplan, mealplan_recipe_amount);
             recipe_to_file(mealplan, mealplan_recipe_amount);
         }
@@ -64,8 +67,8 @@ int main(void){
                 }
             }else if(m == 'n'){
                 break;
-        }
+            }
     }
     freeRecipes(&mealplan, mealplan_recipe_amount);
     freeRecipes(&recipes, recipe_amount);
-} */
+}
