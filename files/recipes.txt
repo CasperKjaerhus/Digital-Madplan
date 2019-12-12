@@ -2,7 +2,7 @@
 name="Lasagna";
 ingredient="Minced ground beef", amount="125", unit="Gram(s)";
 ingredient="Lasagne noodles", amount="2.5", unit="Lasagna noodles";
-ingredient="Tomatoes", amount="0.5", unit="Can(s)";
+ingredient="Crushed tomatoes", amount="0.5", unit="Can(s)";
 ingredient="Onion", amount="50", unit="Gram(s)";
 ingredient="Carrots", amount="100", unit="Gram(s)";
 ingredient="Garlic", amount="2", unit="Clove(s)";
