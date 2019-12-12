@@ -83,20 +83,20 @@ int calcIngredientMatches(Recipe recipe1, Recipe recipe2){
     return count;
 }
 
-void freeRecipe(Recipe *recipe){
-    for(int i = 0; i < recipe->amount_of_ingredients; i++){
-        free(recipe->ingredients[i].name);
-        free(recipe->ingredients[i].unit);
+void freeRecipe(Recipe recipe){
+    for(int i = 0; i < recipe.amount_of_ingredients; i++){
+        free(recipe.ingredients[i].name);
+        free(recipe.ingredients[i].unit);
     }
-    free(recipe->ingredients);
-    free(recipe->name);
+    free(recipe.ingredients);
+    free(recipe.name);
 }
 
-void freeRecipes(Recipe **recipes, int amount_of_recipes){
+void freeRecipes(Recipe *recipes, int amount_of_recipes){
     for(int i = 0; i < amount_of_recipes; i++){
-        freeRecipe(recipes[i]);
+        freeRecipe(recipes[i]); /*function that frees one recipe's data*/
     }
-    free(*recipes);
+    free(recipes); /*last frees the whole array*/
 }
 
 /*Function that returns a random recipe with a given ingredient*/
