@@ -1,4 +1,31 @@
 {
+name="Salmon with roast potatoes";
+ingredient="Butter", amount="200.0", unit="Gram(s)";
+ingredient="Water", amount="26.0", unit="Milliliters";
+ingredient="Egg yolk", amount="2.0", unit="Yolk(s)";
+ingredient="Lemon juice", amount="4.0", unit="Milliliters";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Salmon", amount="150.0", unit="Gram(s)";
+ingredient="Potatoes", amount="200.0", unit="Gram(s)";
+ingredient="Thime", amount="4.0", unit="Stalks";
+ingredient="Olive oil", amount="12.0", unit="Gram(s)";
+}
+{
+name="Shakshuka";
+ingredient="Onion", amount="150.0", unit="Gram(s)";
+ingredient="Red kuri squash", amount="200.0", unit="Gram(s)";
+ingredient="Garlic", amount="3.0", unit="Clove(s)";
+ingredient="Fresh chili", amount="10.0", unit="Gram(s)";
+ingredient="Crushed tomatoes", amount="2.0", unit="Can(s)";
+ingredient="Eggs", amount="4.0", unit="Egg(s)";
+ingredient="Paprika", amount="8.0", unit="Gram(s)";
+ingredient="Ground koriander", amount="6.0", unit="Gram(s)";
+ingredient="Ground cumin", amount="6.0", unit="Gram(s)";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Olive oil", amount="12.0", unit="Gram(s)";
+ingredient="Bread of own choice", amount="120.0", unit="Gram(s)";
+}
+{
 name="Pasta with salmon";
 ingredient="Fettucine pasta", amount="150.0", unit="Gram(s)";
 ingredient="Milk", amount="250.0", unit="Milliliters";
@@ -15,21 +42,6 @@ ingredient="Olive oil", amount="12.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }
 {
-name="Baked Cod with Vegetables";
-ingredient="Cod fillets (fresh/frozen)", amount="250.0", unit="Gram(s)";
-ingredient="Cauliflower", amount="150.0", unit="Gram(s)";
-ingredient="Edamame beans", amount="100.0", unit="Gram(s)";
-ingredient="Carrots", amount="100.0", unit="Gram(s)";
-ingredient="Potatoes", amount="400.0", unit="Gram(s)";
-ingredient="Boiling water", amount="550.0", unit="Milliliters";
-ingredient="Vegetable stock", amount="50.0", unit="Milliliters";
-ingredient="Butter", amount="13.0", unit="Gram(s)";
-ingredient="Fresh chili", amount="10.0", unit="Gram(s)";
-ingredient="Thime", amount="4.0", unit="Stalks";
-ingredient="Lemon juice", amount="10.0", unit="Milliliters";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
 name="Tortillas with Grilled Chicken";
 ingredient="Tortillas", amount="4.0", unit="Pieces";
 ingredient="Chicken fillets", amount="250.0", unit="Gram(s)";
@@ -42,33 +54,6 @@ ingredient="Olive oil", amount="10.0", unit="Milliliters";
 ingredient="Chopped red bell pepper", amount="30.0", unit="Gram(s)";
 ingredient="Black beans", amount="120.0", unit="Gram(s)";
 ingredient="Avocado", amount="150.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
-name="Salad with grilled chicken";
-ingredient="Lemon juice", amount="4.0", unit="Milliliters";
-ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
-ingredient="Garlic", amount="2.0", unit="Clove(s)";
-ingredient="Grilled chicken", amount="200.0", unit="Gram(s)";
-ingredient="Iceberg salad", amount="150.0", unit="Gram(s)";
-ingredient="Red bell pepper", amount="80.0", unit="Gram(s)";
-ingredient="Cherry tomatoes", amount="80.0", unit="Gram(s)";
-ingredient="Avocado", amount="80.0", unit="Gram(s)";
-ingredient="Toasted rye bread", amount="120.0", unit="Gram(s)";
-ingredient="Olive oil", amount="12.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
-name="Nordic curry stew";
-ingredient="Red lentils", amount="1000.0", unit="Gram(s)";
-ingredient="Celeriac", amount="150.0", unit="Gram(s)";
-ingredient="Red onion", amount="100.0", unit="Gram(s)";
-ingredient="Edamame beans", amount="100.0", unit="Gram(s)";
-ingredient="Grated ginger", amount="10.0", unit="Gram(s)";
-ingredient="Garlic", amount="4.0", unit="Clove(s)";
-ingredient="Lemon juice", amount="10.0", unit="Milliliters";
-ingredient="Ground cumin", amount="10.0", unit="Gram(s)";
-ingredient="Creme fraiche", amount="100.0", unit="Milliliters";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }
 {
@@ -98,4 +83,16 @@ ingredient="Salt and pepper", amount="0.0", unit="To taste";
 ingredient="Olive oil", amount="10.0", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0.0", unit="To taste";
 ingredient="Chili Mayo", amount="0.0", unit="To taste";
+}
+{
+name="Toasted ryebread sandwich with chicken and greens";
+ingredient="Garlic", amount="2.0", unit="Clove(s)";
+ingredient="Lemon juice", amount="4.0", unit="Milliliters";
+ingredient="Chicken slices", amount="200.0", unit="Gram(s)";
+ingredient="Red bell pepper", amount="80.0", unit="Gram(s)";
+ingredient="Mozzarella", amount="40.0", unit="Gram(s)";
+ingredient="Gouda cheese", amount="40.0", unit="Gram(s)";
+ingredient="Iceberg salad", amount="50.0", unit="Gram(s)";
+ingredient="Cherry tomatoes", amount="50.0", unit="Gram(s)";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }
