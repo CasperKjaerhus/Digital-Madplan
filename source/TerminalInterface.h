@@ -1,0 +1,5 @@
+#ifndef TERMINALINTERFACE_H
+#define TERMINALINTERFACE_H
+
+
+#endif
