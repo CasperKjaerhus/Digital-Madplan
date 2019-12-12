@@ -2,7 +2,7 @@
 
 Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes){
    int i, z, j = 0, total_ingredients = getIngredientsInRecipes(recipe_array_input, amount_of_recipes);
-   Ingredient *shoppinglist = chkMalloc(sizeof(Ingredient)*total_ingredients, "Shopping List");
+   Ingredient *shoppinglist = (Ingredient *) chkMalloc(sizeof(Ingredient)*total_ingredients, "Shopping List");
    
    for(i = 0; i < amount_of_recipes; i++){
       for(z = 0; z < recipe_array_input[i].amount_of_ingredients; z++){
@@ -21,16 +21,18 @@ void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes){
 
    uniques = get_uniques(shoplist, total_ingredients);
 
-   printf("Amount of uniques: %d\nUNSUMMED SHOPPINGLIST\n", uniques);
-
-   for(i = 0; i < total_ingredients; i++){
-      printf("Ingredient name: %s, amount: %.1lf, unit: %s\n", shoplist[i].name, shoplist[i].amount,  shoplist[i].unit);
-   }
-
-   printf("\n\n");
-
+   if(!doesFileExist("Shopping_list.txt"))
+      createFile("Shopping_list.txt");
+   
+   FILE *shoppinglist_file = openFile("Shopping_list.txt", "w+");
+   fprintf(shoppinglist_file, "Shopping List:\n");
+   fprintf(shoppinglist_file, "_________________\n");
+   fprintf(shoppinglist_file, "ingredient name:\t|\tamount:\n\n");
    for(i = 0; i < uniques; i++){
-      printf("Ingredient name: %s, amount: %.1lf, unit: %s\n", summed_shoplist[i].name, summed_shoplist[i].amount,  summed_shoplist[i].unit);
+      if(summed_shoplist[i].amount == 0.0)
+         fprintf(shoppinglist_file, "%s\n", summed_shoplist[i].name);
+      else
+         fprintf(shoppinglist_file, "%-31s %-.1f %s\n", summed_shoplist[i].name, summed_shoplist[i].amount, summed_shoplist[i].unit);
    }
 
    free(summed_shoplist);
@@ -64,8 +66,8 @@ Ingredient *summed_shopping_list(Ingredient *original_shoppinglist, int total_in
 
    for(i = 0; i < total_ingredients; i++){
       if(isUniqueIngredient(summed_shoplist, currentUniqueAmount, original_shoppinglist[i])){
-         strcpy(summed_shoplist[currentUniqueAmount].name, original_shoppinglist[i].name);
-         strcpy(summed_shoplist[currentUniqueAmount].unit, original_shoppinglist[i].unit);
+         summed_shoplist[currentUniqueAmount].name = original_shoppinglist[i].name;
+         summed_shoplist[currentUniqueAmount].unit = original_shoppinglist[i].unit;
          summed_shoplist[currentUniqueAmount].amount = original_shoppinglist[i].amount;
          currentUniqueAmount++;
       } else{
@@ -81,10 +83,17 @@ int isUniqueIngredient(Ingredient *unique_array, int unique_amount, Ingredient i
    int i;
    
    for(i = 0; i < unique_amount; i++){
-      if(strcmp(unique_array[i].name, ingredient.name)){
+      if(strcmp(unique_array[i].name, ingredient.name) == 0){
          return 0;
       }
    }
 
    return 1;
+}
+int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
+    int amount = 0;
+    for(int i = 0; i < amount_of_recipes; i++){
+        amount += recipes[i].amount_of_ingredients;
+    }
+    return amount;
 }

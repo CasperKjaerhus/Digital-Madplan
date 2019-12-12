@@ -12,7 +12,6 @@
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int u, e;
     int n = 0;
     Recipe *recipes;
     Recipe *mealplan;
@@ -30,34 +29,23 @@ int main(void){
 
     recipes = readRecipes(&recipe_amount, "files/recipes.txt");
     
-    while(n == 0||n == 1|| n == 2){
+    while(n >= 0 && n <= 3){
         printf("\nMealplan Generator\n");
         printf("Choose an option:\n");
         printf("1) To create a new Mealplan.\n");
         printf("2) To access your previous Mealplan.\n");
+        printf("3) To get Shoppinglist.\n");
         scanf(" %d", &n);
 
         if(n == 1){
-            amount_of_people(mealplan);
-            show_user_ingredients(mealplan);
-            change_a_meal(mealplan);
+            new_mealplan(recipes, recipe_amount);
         }
         else if(n == 2){
+            previous_mealplan(mealplan);
+        }
+        else if(n == 3){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-            printf("Choose an option:\n");
-            printf("1) To see ingredients on af meal.\n2) To change a meal.\n3) To see current mealplan.\n");
-            scanf("%d", &u);
-            if(u == 1){
-                show_user_ingredients(mealplan);
-            }else if(u == 2){
-                change_a_meal(mealplan);
-            }else if(u == 3){
-                for(e = 0; e < 7; e++){
-                    printf("%s", mealplan[e].name);
-                }
-            }else{
-                printf("invalid input - returning to the main menu...");
-            }
+            print_shoppinglist(mealplan, mealplan_recipe_amount);
             free(mealplan);
         }
     }
