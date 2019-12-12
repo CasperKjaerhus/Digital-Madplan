@@ -43,7 +43,7 @@ int main(void){
         scanf(" %c", &m);
 
             if(m == 'y'){
-                printf("Press the number of the meal, of which you would like to change");
+                printf("Press the number of the meal, of which you would like to change!\n");
                 printRecipes(mealplan, mealplan_recipe_amount);
                 scanf(" %d", &i);
                 if(i == 1){
