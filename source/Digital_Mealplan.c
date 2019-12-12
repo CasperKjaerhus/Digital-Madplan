@@ -41,7 +41,7 @@ int main(void){
             mealplan = GenerateMealplan(recipes, recipe_amount);
             for(j = 0; j < 7; j++){
                 for(p = 0; p < mealplan[j].amount_of_ingredients; p++){
-                mealplan[j].ingredients[p].amount * people;
+                    mealplan[j].ingredients[p].amount = mealplan[j].ingredients[p].amount * people;
                 }
             }
             printRecipes(mealplan, mealplan_recipe_amount);
