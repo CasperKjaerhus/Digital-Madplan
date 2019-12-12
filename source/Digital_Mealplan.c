@@ -9,9 +9,14 @@
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int n = 0;
+    int i, n = 0;
+    char m;
     Recipe *recipes;
+    Recipe *planned_recipes;
+    Recipe *amount_of_recipes;
+    Recipe *amount_of_already_planned;
     Recipe *mealplan;
+
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount, "files/recipes.txt");
@@ -33,14 +38,42 @@ int main(void){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
             printRecipes(mealplan, mealplan_recipe_amount);
         }
-        else
+        else{
             printf("Invalid input");
+        }
+
+        printf("Would you like to change one of the daily meals? (y/n).\n");
+        scanf(" &c", &m);
+
+            if(m == 'y'){
+                printf("Press the number of the meal, of which you would like to change");
+                printRecipes(mealplan, mealplan_recipe_amount);
+                scanf(" %d", &i);
+                if(i == 1){
+                    mealplan[0] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 2){
+                    mealplan[1] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 3){
+                    mealplan[2] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 4){
+                    mealplan[3] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 5){
+                    mealplan[4] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 6){
+                    mealplan[5] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+                else if( i == 7){
+                    mealplan[6] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                }
+            }else if(m == 'n'){
+                return;
+        }
     }
-   
-    
-
-    
-
     freeRecipes(&mealplan, mealplan_recipe_amount);
     freeRecipes(&recipes, recipe_amount);
 }
