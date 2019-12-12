@@ -10,7 +10,7 @@
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int i, j,n = 0, people, p;
+    int i, j,n = 0, people = 1, p;
     char m;
     Recipe *recipes;
     Recipe *mealplan;
