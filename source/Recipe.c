@@ -71,30 +71,6 @@ Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_rec
     return unplanned; 
 }
 
-/*This function copies a recipe and all its data to another recipe*/
-void cpyRecipe(Recipe *target, Recipe *source){
-    /*allocates space for name and copies it*/
-    target->name = chkMalloc(strlen(source->name), "cpy Recipe name");
-    strcpy(target->name, source->name);
-    /*Copies the ints*/
-    target->calories = source->calories;
-    target->amount_of_ingredients = source->amount_of_ingredients;
-
-    /*Makes space for all the ingredients*/
-    target->ingredients = chkMalloc(sizeof(Ingredient) * source->amount_of_ingredients, "cpyRecipe");
-
-    /*Copies the ingredient data one by one from source to target*/
-    for(int i = 0; i < source->amount_of_ingredients; i++){
-        target->ingredients[i].name = chkMalloc(strlen(source->name), "cpyRecipe ingredient name");
-        strcpy(target->ingredients[i].name, source->ingredients[i].name);
-
-        target->ingredients[i].amount = source->ingredients[i].amount;
-
-        target->ingredients[i].unit = chkMalloc(strlen(source->ingredients[i].unit), "cpyRecipe ingredient unit");
-        strcpy(target->ingredients[i].unit, source->ingredients[i].unit);
-    }
-}
-
 int calcIngredientMatches(Recipe recipe1, Recipe recipe2){
     int count = 0;
     for(int i = 0; i < recipe1.amount_of_ingredients; i++){
@@ -117,8 +93,9 @@ void freeRecipe(Recipe *recipe){
 }
 
 void freeRecipes(Recipe **recipes, int amount_of_recipes){
-    for(int i = 0; i < amount_of_recipes; i++)
+    for(int i = 0; i < amount_of_recipes; i++){
         freeRecipe(recipes[i]);
+    }
     free(*recipes);
 }
 
@@ -129,9 +106,9 @@ Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
 
 
 
-Recipe *readRecipes(int *amount_of_recipes){
-    FILE *file = openFile("files/recipes.txt", "r");
-    *amount_of_recipes = countRecipes();
+Recipe *readRecipes(int *amount_of_recipes, char *filePlace){
+    FILE *file = openFile(filePlace, "r");
+    *amount_of_recipes = countRecipes(filePlace);
 
     Recipe *recipes = (Recipe *) chkMalloc(sizeof(Recipe) * *amount_of_recipes, "Recipes");
 
@@ -174,17 +151,18 @@ Recipe readNextRecipe(FILE **file){
 void printRecipe(Recipe recipe){
     //int i;
     printf("Name: %s\n", recipe.name);
-    /*for(i = 0; i < recipe.amount_of_ingredients; i++){
+    for(i = 0; i < recipe.amount_of_ingredients; i++){
         if(recipe.ingredients[i].amount != 0)
-            printf("%d: %s %.0lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
+            printf("%d: %s %.1lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
         else
             printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
-    }*/
+    }
 }
 
 void printRecipes(Recipe *recipes, int amount_of_recipes){
-    for(int i = 0; i < amount_of_recipes; i++)
+    for(int i = 0; i < amount_of_recipes; i++){
         printRecipe(recipes[i]);
+    }
 }
 
 /*This function counts how many ingredients a given recipe has*/
@@ -202,8 +180,8 @@ int countIngredientInRecipe(char *name){
     return 0;
 }
 
-int countRecipes(){
-    FILE *file = openFile("files/recipes.txt", "r");
+int countRecipes(char *filePlace){
+    FILE *file = openFile(filePlace, "r");
     char line[100];
     int opens = 0, closes = 0;
     while(!feof(file)){
@@ -215,7 +193,7 @@ int countRecipes(){
     }
 
     if(opens != closes){
-        printf("Error: files/recipes.txt syntax error, missing \"{\" or \"}\"");
+        printf("Error: %s syntax error, missing \"{\" or \"}\"", filePlace);
         exit(EXIT_FAILURE);
     }
     return opens;
