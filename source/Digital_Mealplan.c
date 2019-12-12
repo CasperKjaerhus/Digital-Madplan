@@ -29,11 +29,12 @@ int main(void){
 
     recipes = readRecipes(&recipe_amount, "files/recipes.txt");
     
-    while(n == 0||n == 1|| n == 2){
+    while(n >= 0 && n <= 3){
         printf("\nMealplan Generator\n");
         printf("Choose an option:\n");
         printf("1) To create a new Mealplan.\n");
         printf("2) To access your previous Mealplan.\n");
+        printf("3) To get Shoppinglist\n");
         scanf(" %d", &n);
 
         if(n == 1){
@@ -71,7 +72,13 @@ int main(void){
         }
         else if(n == 2){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-            /*printRecipes(mealplan, mealplan_recipe_amount);*/
+            printRecipes(mealplan, mealplan_recipe_amount);
+            free(mealplan);
+        }
+        else if(n == 3){
+            mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
+            print_shoppinglist(mealplan, mealplan_recipe_amount);
+            free(mealplan);
         }
         else{
             printf("Invalid input");

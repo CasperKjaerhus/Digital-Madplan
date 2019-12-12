@@ -8,15 +8,6 @@ int get_random_number(int a, int b){
     return (rand() % (b+1 - a)) + a;
 }
 
-int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
-    int amount = 0;
-    for(int i = 0; i < amount_of_recipes; i++){
-        amount += recipes[i].amount_of_ingredients;
-    }
-    return amount;
-}
-
-
 /* Function that orders recipes relative to ingredients */
 Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned_recipes, int amount_of_already_planned){
     int amount_unused, WeightedRandom, highest_match = 0, return_index = 0;
