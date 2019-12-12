@@ -50,25 +50,25 @@ int main(void){
                 printRecipes(mealplan, mealplan_recipe_amount);
                 scanf(" %d", &i);
                 if(i == 1){
-                    mealplan[0] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[0] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 2){
-                    mealplan[1] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[1] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 3){
-                    mealplan[2] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[2] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 4){
-                    mealplan[3] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[3] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 5){
-                    mealplan[4] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[4] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 6){
-                    mealplan[5] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[5] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
                 else if( i == 7){
-                    mealplan[6] = getWeightedRecipe(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned);
+                    mealplan[6] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
             }else if(m == 'n'){
                 return;
