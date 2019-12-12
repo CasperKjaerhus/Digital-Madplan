@@ -34,7 +34,7 @@ ingredient="Iceberg salad", amount="50", unit="Gram(s)";
 ingredient="Pickles", amount="40", unit="Gram(s)";
 ingredient="Gouda cheese", amount="25", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0", unit="To taste";
-ingredient="Olive oil", amount="5", unit="Millimeters";
+ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
 }
