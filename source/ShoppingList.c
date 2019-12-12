@@ -17,22 +17,28 @@ Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes){
 void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes){
    int i, uniques, total_ingredients = getIngredientsInRecipes(recipe_input, amount_of_recipes);
    Ingredient *shoplist = shopping_list(recipe_input, amount_of_recipes);
-   //Ingredient *sorted_shoplist = sorted_shopping_list(shoplist, total_ingredients);
+   Ingredient *summed_shoplist = summed_shopping_list(shoplist, total_ingredients);
 
    uniques = get_uniques(shoplist, total_ingredients);
 
-   qsort(shoplist, total_ingredients, sizeof(Ingredient), cmpfunction);
+   printf("Amount of uniques: %d\nUNSUMMED SHOPPINGLIST\n", uniques);
 
-   printf("Amount of uniques: %d\n", uniques);
-
-   for(i = 0; i < total_ingredients; i++)
+   for(i = 0; i < total_ingredients; i++){
       printf("Ingredient name: %s, amount: %.1lf, unit: %s\n", shoplist[i].name, shoplist[i].amount,  shoplist[i].unit);
+   }
 
+   printf("\n\n");
+
+   for(i = 0; i < uniques; i++){
+      printf("Ingredient name: %s, amount: %.1lf, unit: %s\n", summed_shoplist[i].name, summed_shoplist[i].amount,  summed_shoplist[i].unit);
+   }
+
+   free(summed_shoplist);
    free(shoplist);
 }
 
 int get_uniques(Ingredient *shoplist, int total_ingredients){
-   int i, uniques = 0;
+   int i, uniques = 1;
 
    qsort(shoplist, total_ingredients, sizeof(Ingredient), cmpfunction);
 
@@ -45,18 +51,40 @@ int get_uniques(Ingredient *shoplist, int total_ingredients){
    return uniques;
 }
 
-/*Ingredient *sorted_shopping_list(Ingredient *shoplist, int total_ingredients){
-   int uniques = get_uniques(shoplist, total_ingredients), i, j;
-   Ingredient *newShopList = chkMalloc((sizeof(Ingredient))*uniques, "New Sorted Shopping List");
-
-   
-   
-   return newShopList;*/
-//}
-
 int cmpfunction(const void *first, const void *second){
    const Ingredient *elem1 = first;
    const Ingredient *elem2 = second;
 
    return strcmp(elem1->name, elem2->name);
+}
+
+Ingredient *summed_shopping_list(Ingredient *original_shoppinglist, int total_ingredients){
+   int uniques = get_uniques(original_shoppinglist, total_ingredients), i, currentUniqueAmount = 0;
+   Ingredient *summed_shoplist = chkCalloc(sizeof(Ingredient)*uniques, "Summed shopping list");
+
+   for(i = 0; i < total_ingredients; i++){
+      if(isUniqueIngredient(summed_shoplist, currentUniqueAmount, original_shoppinglist[i])){
+         strcpy(summed_shoplist[currentUniqueAmount].name, original_shoppinglist[i].name);
+         strcpy(summed_shoplist[currentUniqueAmount].unit, original_shoppinglist[i].unit);
+         summed_shoplist[currentUniqueAmount].amount = original_shoppinglist[i].amount;
+         currentUniqueAmount++;
+      } else{
+         summed_shoplist[currentUniqueAmount-1].amount += original_shoppinglist[i].amount;
+      }
+
+   }
+
+   return summed_shoplist;
+}
+
+int isUniqueIngredient(Ingredient *unique_array, int unique_amount, Ingredient ingredient){
+   int i;
+   
+   for(i = 0; i < unique_amount; i++){
+      if(strcmp(unique_array[i].name, ingredient.name)){
+         return 0;
+      }
+   }
+
+   return 1;
 }
