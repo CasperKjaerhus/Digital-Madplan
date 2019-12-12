@@ -1,10 +1,10 @@
 #include "Recipe.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
+#include "FileHandler.h"
 
-typedef struct shoppinglist{
-    char *ingredient_name;
-    int amount;
-} Shoppinglist;
-
-Shoppinglist *shopping_list(Recipe *recipe_input, int list_size);
+Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes);
+void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes);
+Ingredient *sorted_shopping_list(Ingredient *shoplist, int total_ingredients);
+int cmpfunction(const void *first, const void *second);
+int get_uniques(Ingredient *shoplist, int total_ingredients);
