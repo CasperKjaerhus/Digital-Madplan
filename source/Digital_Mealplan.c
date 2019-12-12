@@ -28,19 +28,16 @@ int main(void){
             mealplan = GenerateMealplan(recipes, recipe_amount);
             printRecipes(mealplan, mealplan_recipe_amount);
             recipe_to_file(mealplan, mealplan_recipe_amount);
+            free(mealplan);
         }
         else if(n == 2){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
             printRecipes(mealplan, mealplan_recipe_amount);
+            freeRecipes(mealplan, mealplan_recipe_amount);
         }
         else
             printf("Invalid input");
     }
-   
-    
 
-    
-
-    freeRecipes(&mealplan, mealplan_recipe_amount);
-    freeRecipes(&recipes, recipe_amount);
+    freeRecipes(recipes, recipe_amount);
 }

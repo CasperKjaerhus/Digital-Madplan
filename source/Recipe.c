@@ -19,11 +19,10 @@ int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
 
 /* Function that orders recipes relative to ingredients */
 Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned_recipes, int amount_of_already_planned){
-    int amount_unused, highest_match = 0, return_index = 0;
+    int amount_unused, WeightedRandom, highest_match = 0, return_index = 0;
     Recipe *Unused_recipes = dif_recipes(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned, &amount_unused);
     int *matches = (int *) chkCalloc(sizeof(int) * amount_unused, "getWeightedRecipe matches");
     Recipe returnRecipe;
-    
     for(int i = 0; i < amount_unused; i++){
         for(int j = 0; j < amount_of_already_planned; j++){
             matches[i] += calcIngredientMatches(Unused_recipes[i], planned_recipes[j]);
@@ -34,7 +33,7 @@ Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned
     /*Calculates a pseudorandom recipe from a pseudorandom number with a weighted score
       aka: dishes with more ingredients common are more likely but not guaranteed!*/
     for(int i = 0; i < amount_unused; i++){
-        int WeightedRandom = get_random_number(0, 50 + matches[i]); /*This generates a random number between zero and 50 + whatever the corrospondings recipe has "scored"*/
+        WeightedRandom = get_random_number(0, 50 + matches[i]); /*This generates a random number between zero and 50 + whatever the corrospondings recipe has "scored"*/
         if(WeightedRandom > highest_match){
             return_index = i;
             highest_match = WeightedRandom;
@@ -42,19 +41,15 @@ Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned
     }
 
     returnRecipe = Unused_recipes[return_index];
-
-
     free(matches);
     free(Unused_recipes);
-
+    
     return returnRecipe;
-
-
 }
 
 /* Function that returns array of unused recipes */
 Recipe *dif_recipes(Recipe *recipes, int amount_of_recipes, Recipe *mealplan_recipes, int amount_of_already_planned, int *amount_unused){
-    Recipe *unplanned = chkMalloc(sizeof(Recipe) * amount_of_recipes, "Unplanned recipes");
+    Recipe *unplanned = (Recipe *) chkMalloc(sizeof(Recipe) * amount_of_recipes, "Unplanned recipes");
     int isPlanned, index = 0;
     for(int i = 0; i < amount_of_recipes; i++){
         isPlanned = 0;
@@ -101,7 +96,7 @@ void freeRecipes(Recipe *recipes, int amount_of_recipes){
 
 /*Function that returns a random recipe with a given ingredient*/
 Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
-    return recipes[get_random_number(0, amount_of_recipes)];
+    return recipes[get_random_number(0, amount_of_recipes-1)];
 }
 
 
@@ -134,13 +129,13 @@ Recipe readNextRecipe(FILE **file){
 
     /*Finds the amount of ingredients and creates the ingredient array*/
     recipe.amount_of_ingredients = countIngredientInRecipe(recipe.name);
-    recipe.ingredients = chkMalloc(sizeof(Ingredient) * recipe.amount_of_ingredients, "Ingredient array");
+    recipe.ingredients = (Ingredient *) chkMalloc(sizeof(Ingredient) * recipe.amount_of_ingredients, "Ingredient array");
 
     /*Fills the ingredient array*/
     for(i = 0; i < recipe.amount_of_ingredients; i++){
         fscanf(*file, "ingredient=\"%[^\"]\", amount=\"%f\", unit=\"%[^\"]\";\n", bufIngredientName, &recipe.ingredients[i].amount, bufUnit);
-        recipe.ingredients[i].name = chkMalloc(strlen(bufIngredientName)+1, "Ingredient name");
-        recipe.ingredients[i].unit = chkMalloc(strlen(bufUnit)+1, "Ingredient unit");
+        recipe.ingredients[i].name = (char *) chkMalloc(strlen(bufIngredientName)+1, "Ingredient name");
+        recipe.ingredients[i].unit = (char *) chkMalloc(strlen(bufUnit)+1, "Ingredient unit");
 
         strcpy(recipe.ingredients[i].name, bufIngredientName);
         strcpy(recipe.ingredients[i].unit, bufUnit);
