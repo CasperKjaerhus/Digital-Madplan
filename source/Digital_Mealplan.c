@@ -43,7 +43,7 @@ int main(void){
         }
 
         printf("Would you like to change one of the daily meals? (y/n).\n");
-        scanf(" &c", &m);
+        scanf(" %c", &m);
 
             if(m == 'y'){
                 printf("Press the number of the meal, of which you would like to change");
