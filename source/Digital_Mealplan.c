@@ -48,24 +48,31 @@ int main(void){
                 scanf(" %d", &i);
                 if(i == 1){
                     mealplan[0] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 2){
                     mealplan[1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 3){
                     mealplan[2] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 4){
                     mealplan[3] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 5){
                     mealplan[4] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 6){
                     mealplan[5] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
                 else if( i == 7){
                     mealplan[6] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                    printRecipes(mealplan, mealplan_recipe_amount);
                 }
             }else if(m == 'n'){
                 break;
