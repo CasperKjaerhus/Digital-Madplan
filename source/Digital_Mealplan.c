@@ -57,34 +57,9 @@ int main(void){
 
             if(m == 'y'){
                 printf("Press the number of the meal, of which you would like to change!\n");
-                printRecipes(mealplan, mealplan_recipe_amount);
                 scanf(" %d", &i);
-                if(i == 1){
-                    mealplan[0] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 2){
-                    mealplan[1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 3){
-                    mealplan[2] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 4){
-                    mealplan[3] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 5){
-                    mealplan[4] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 6){
-                    mealplan[5] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printRecipes(mealplan, mealplan_recipe_amount);
-                }
-                else if( i == 7){
-                    mealplan[6] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                if(i >= 1 && i <= 7){
+                    mealplan[i-1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
                     printRecipes(mealplan, mealplan_recipe_amount);
                 }
             }else if(m == 'n'){
