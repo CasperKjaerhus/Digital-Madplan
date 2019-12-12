@@ -90,8 +90,6 @@ Recipe getRandomRecipe(Recipe *recipes, int amount_of_recipes){
     return recipes[get_random_number(0, amount_of_recipes-1)];
 }
 
-
-
 Recipe *readRecipes(int *amount_of_recipes, char *filePlace){
     FILE *file = openFile(filePlace, "r");
     *amount_of_recipes = countRecipes(filePlace);
@@ -132,23 +130,6 @@ Recipe readNextRecipe(FILE **file){
         strcpy(recipe.ingredients[i].unit, bufUnit);
     }
     return recipe;
-}
-
-void printRecipe(Recipe recipe){
-    int i;
-    printf("Name: %s\n", recipe.name);
-    for(i = 0; i < recipe.amount_of_ingredients; i++){
-        if(recipe.ingredients[i].amount != 0)
-            printf("%d: %s %.1lf %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].amount, recipe.ingredients[i].unit);
-        else
-            printf("%d: %s %s\n", i, recipe.ingredients[i].name, recipe.ingredients[i].unit);       
-    }
-}
-
-void printRecipes(Recipe *recipes, int amount_of_recipes){
-    for(int i = 0; i < amount_of_recipes; i++){
-        printRecipe(recipes[i]);
-    }
 }
 
 /*This function counts how many ingredients a given recipe has*/
