@@ -34,7 +34,7 @@ ingredient="Iceberg salad", amount="50", unit="Gram(s)";
 ingredient="Pickles", amount="40", unit="Gram(s)";
 ingredient="Gouda cheese", amount="25", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0", unit="To taste";
-ingredient="Olive oil", amount="5", unit="Millimeters";
+ingredient="Olive oil", amount="5", unit="Milliliters";
 ingredient="Tomato ketchup", amount="0", unit="To taste";
 ingredient="Chili Mayo", amount="0", unit="To taste";
 }
@@ -119,7 +119,7 @@ ingredient="Red bell pepper", amount="40", unit="Gram(s)";
 ingredient="Cherry tomatoes", amount="40", unit="Gram(s)";
 ingredient="Avocado", amount="40", unit="Gram(s)";
 ingredient="Toasted rye bread", amount="60", unit="Gram(s)";
-ingredient="Olive oil", amount="6", unit="Gram(s)";
+ingredient="Olive oil", amount="6", unit="Milliliters";
 ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
@@ -159,7 +159,7 @@ ingredient="Paprika", amount="4", unit="Gram(s)";
 ingredient="Ground koriander", amount="3", unit="Gram(s)";
 ingredient="Ground cumin", amount="3", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0", unit="To taste";
-ingredient="Olive oil", amount="6", unit="Gram(s)";
+ingredient="Olive oil", amount="6", unit="Milliliters";
 ingredient="Bread of own choice", amount="60", unit="Gram(s)";
 }
 {
@@ -175,7 +175,7 @@ ingredient="Garlic", amount="1", unit="Clove(s)";
 ingredient="Edamame beans", amount="40", unit="Gram(s)";
 ingredient="Cherry tomatoes", amount="50", unit="Gram(s)";
 ingredient="Salmon", amount="75", unit="Gram(s)";
-ingredient="Olive oil", amount="6", unit="Gram(s)";
+ingredient="Olive oil", amount="6", unit="Milliliters";
 ingredient="Salt and pepper", amount="0", unit="To taste";
 }
 {
@@ -188,5 +188,5 @@ ingredient="Salt and pepper", amount="0", unit="To taste";
 ingredient="Salmon", amount="75", unit="Gram(s)";
 ingredient="Potatoes", amount="100", unit="Gram(s)";
 ingredient="Thime", amount="2", unit="Stalks";
-ingredient="Olive oil", amount="6", unit="Gram(s)";
+ingredient="Olive oil", amount="6", unit="Milliliters";
 }
