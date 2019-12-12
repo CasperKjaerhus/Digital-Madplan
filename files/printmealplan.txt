@@ -1,29 +1,57 @@
 {
-name="Salmon with roast potatoes";
-ingredient="Butter", amount="200.0", unit="Gram(s)";
-ingredient="Water", amount="26.0", unit="Milliliters";
-ingredient="Egg yolk", amount="2.0", unit="Yolk(s)";
-ingredient="Lemon juice", amount="4.0", unit="Milliliters";
+name="Tortillas with Grilled Chicken";
+ingredient="Tortillas", amount="4.0", unit="Pieces";
+ingredient="Chicken fillets", amount="250.0", unit="Gram(s)";
+ingredient="Tomato pure", amount="2.0", unit="Can(s)";
+ingredient="Creme fraiche", amount="100.0", unit="Milliliters";
+ingredient="Paprika", amount="3.0", unit="Gram(s)";
+ingredient="Cayenne", amount="3.0", unit="Gram(s)";
+ingredient="Chili powder", amount="3.0", unit="Gram(s)";
+ingredient="Olive oil", amount="10.0", unit="Milliliters";
+ingredient="Chopped red bell pepper", amount="30.0", unit="Gram(s)";
+ingredient="Black beans", amount="120.0", unit="Gram(s)";
+ingredient="Avocado", amount="150.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
-ingredient="Salmon", amount="150.0", unit="Gram(s)";
-ingredient="Potatoes", amount="200.0", unit="Gram(s)";
-ingredient="Thime", amount="4.0", unit="Stalks";
-ingredient="Olive oil", amount="12.0", unit="Gram(s)";
 }
 {
-name="Shakshuka";
-ingredient="Onion", amount="150.0", unit="Gram(s)";
-ingredient="Red kuri squash", amount="200.0", unit="Gram(s)";
-ingredient="Garlic", amount="3.0", unit="Clove(s)";
-ingredient="Fresh chili", amount="10.0", unit="Gram(s)";
-ingredient="Crushed tomatoes", amount="2.0", unit="Can(s)";
-ingredient="Eggs", amount="4.0", unit="Egg(s)";
-ingredient="Paprika", amount="8.0", unit="Gram(s)";
-ingredient="Ground koriander", amount="6.0", unit="Gram(s)";
-ingredient="Ground cumin", amount="6.0", unit="Gram(s)";
+name="Spaghetti Bolognese";
+ingredient="Fettucine pasta", amount="200.0", unit="Gram(s)";
+ingredient="Crushed tomatoes", amount="1.0", unit="Can(s)";
+ingredient="Minced carrot", amount="200.0", unit="Gram(s)";
+ingredient="Minced onion", amount="100.0", unit="Gram(s)";
+ingredient="Garlic", amount="4.0", unit="Clove(s)";
+ingredient="Olive oil", amount="10.0", unit="Milliliters";
+ingredient="Parmesan cheese", amount="50.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Italian seasoning", amount="0.0", unit="To taste";
+}
+{
+name="Salad with grilled chicken";
+ingredient="Lemon juice", amount="4.0", unit="Milliliters";
+ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
+ingredient="Garlic", amount="2.0", unit="Clove(s)";
+ingredient="Grilled chicken", amount="200.0", unit="Gram(s)";
+ingredient="Iceberg salad", amount="150.0", unit="Gram(s)";
+ingredient="Red bell pepper", amount="80.0", unit="Gram(s)";
+ingredient="Cherry tomatoes", amount="80.0", unit="Gram(s)";
+ingredient="Avocado", amount="80.0", unit="Gram(s)";
+ingredient="Toasted rye bread", amount="120.0", unit="Gram(s)";
 ingredient="Olive oil", amount="12.0", unit="Gram(s)";
-ingredient="Bread of own choice", amount="120.0", unit="Gram(s)";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+}
+{
+name="Lasagna";
+ingredient="Minced ground beef", amount="250.0", unit="Gram(s)";
+ingredient="Lasagne noodles", amount="5.0", unit="Lasagna noodles";
+ingredient="Tomatoes", amount="1.0", unit="Can(s)";
+ingredient="Onion", amount="100.0", unit="Gram(s)";
+ingredient="Carrot", amount="200.0", unit="Gram(s)";
+ingredient="Garlic", amount="4.0", unit="Clove(s)";
+ingredient="Vegetable stock", amount="100.0", unit="Milliliters";
+ingredient="Olive oil", amount="10.0", unit="Milliliters";
+ingredient="Mozzarella cheese", amount="50.0", unit="Gram(s)";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Italian seasoning", amount="0.0", unit="To taste";
 }
 {
 name="Pasta with salmon";
@@ -42,33 +70,17 @@ ingredient="Olive oil", amount="12.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }
 {
-name="Tortillas with Grilled Chicken";
-ingredient="Tortillas", amount="4.0", unit="Pieces";
-ingredient="Chicken fillets", amount="250.0", unit="Gram(s)";
-ingredient="Tomato pure", amount="2.0", unit="Can(s)";
-ingredient="Creme fraiche", amount="100.0", unit="Milliliters";
-ingredient="Paprika", amount="3.0", unit="Gram(s)";
-ingredient="Cayenne", amount="3.0", unit="Gram(s)";
-ingredient="Chili powder", amount="3.0", unit="Gram(s)";
-ingredient="Olive oil", amount="10.0", unit="Milliliters";
-ingredient="Chopped red bell pepper", amount="30.0", unit="Gram(s)";
-ingredient="Black beans", amount="120.0", unit="Gram(s)";
-ingredient="Avocado", amount="150.0", unit="Gram(s)";
+name="Grilled tiger prawns with tomato soup";
+ingredient="Tiger prawns", amount="150.0", unit="Gram(s)";
+ingredient="Butter", amount="10.0", unit="Gram(s)";
+ingredient="Fresh chili", amount="5.0", unit="Gram(s)";
+ingredient="Garlic", amount="2.0", unit="Clove(s)";
+ingredient="Cherry tomatoes", amount="400.0", unit="Gram(s)";
+ingredient="Carrots", amount="150.0", unit="Gram(s)";
+ingredient="Potatoes", amount="100.0", unit="Gram(s)";
+ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
+ingredient="Vegetable stock", amount="50.0", unit="Milliliters";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
-name="Lasagna";
-ingredient="Minced ground beef", amount="250.0", unit="Gram(s)";
-ingredient="Lasagne noodles", amount="5.0", unit="Lasagna noodles";
-ingredient="Tomatoes", amount="1.0", unit="Can(s)";
-ingredient="Onion", amount="100.0", unit="Gram(s)";
-ingredient="Carrot", amount="200.0", unit="Gram(s)";
-ingredient="Garlic", amount="4.0", unit="Clove(s)";
-ingredient="Vegetable stock", amount="100.0", unit="Milliliters";
-ingredient="Olive oil", amount="10.0", unit="Milliliters";
-ingredient="Mozzarella cheese", amount="50.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-ingredient="Italian seasoning", amount="0.0", unit="To taste";
 }
 {
 name="Burgers";
@@ -83,16 +95,4 @@ ingredient="Salt and pepper", amount="0.0", unit="To taste";
 ingredient="Olive oil", amount="10.0", unit="Millimeters";
 ingredient="Tomato ketchup", amount="0.0", unit="To taste";
 ingredient="Chili Mayo", amount="0.0", unit="To taste";
-}
-{
-name="Toasted ryebread sandwich with chicken and greens";
-ingredient="Garlic", amount="2.0", unit="Clove(s)";
-ingredient="Lemon juice", amount="4.0", unit="Milliliters";
-ingredient="Chicken slices", amount="200.0", unit="Gram(s)";
-ingredient="Red bell pepper", amount="80.0", unit="Gram(s)";
-ingredient="Mozzarella", amount="40.0", unit="Gram(s)";
-ingredient="Gouda cheese", amount="40.0", unit="Gram(s)";
-ingredient="Iceberg salad", amount="50.0", unit="Gram(s)";
-ingredient="Cherry tomatoes", amount="50.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }

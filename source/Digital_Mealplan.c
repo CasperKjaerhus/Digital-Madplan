@@ -46,7 +46,7 @@ int main(void){
             }
             /*printRecipes(mealplan, mealplan_recipe_amount);*/
             for(l = 0; l < 7; l++){
-            printf("DAY %d: %s\n", l, mealplan[l].name);
+            printf("DAY %d: %s\n", l + 1, mealplan[l].name);
             }
             recipe_to_file(mealplan, mealplan_recipe_amount);
         }
@@ -66,7 +66,7 @@ int main(void){
                 scanf(" %d", &i);
                 if(i >= 1 && i <= 7){
                     mealplan[i-1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                    printf("DAY %d: %s\n", i + 1, mealplan[i].name);
+                    printf("DAY %d: %s\n", i + 1, mealplan[i-1].name);
                 }
             }else if(m == 'n'){
                 break;
