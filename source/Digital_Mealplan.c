@@ -5,17 +5,15 @@
 #include "Recipe.h"
 #include <time.h>
 #include "ShoppingList.h"
+#include "TerminalInterface.h"
 #define WEEK 7
 
-void amount_of_people(Recipe *mealplan);
-void show_user_ingredients(Recipe *mealplan);
-void change_a_meal(Recipe *mealplan);
+
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int i, j, l, k, dish, p, s;
-    int n = 0, people = 1;
-    char m, list_answer;
+    int u, e;
+    int n = 0;
     Recipe *recipes;
     Recipe *mealplan;
 
@@ -46,17 +44,24 @@ int main(void){
         }
         else if(n == 2){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-            /*printRecipes(mealplan, mealplan_recipe_amount);*/
-        
-
+            printf("Choose an option:\n");
+            printf("1) To see ingredients on af meal.\n2) To change a meal.\n3) To see current mealplan.\n");
+            scanf("%d", &u);
+            if(u == 1){
+                show_user_ingredients(mealplan);
+            }else if(u == 2){
+                change_a_meal(mealplan);
+            }else if(u == 3){
+                for(e = 0; e < 7; e++){
+                    printf("%s", mealplan[e].name);
+                }
+            }else{
+                printf("invalid input - returning to the main menu...");
+            }
             free(mealplan);
         }
-        else{
-            printf("Invalid input");
-        }
-
-       change_a_meal(mealplan);
     }
-
     freeRecipes(recipes, recipe_amount);
+
+return EXIT_SUCCESS;
 }

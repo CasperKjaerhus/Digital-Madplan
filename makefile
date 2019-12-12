@@ -11,7 +11,7 @@ compiled/Ingredient.o: source/Ingredient.c
 compiled/Mealplan.o: source/Mealplan.c
 	gcc -c source/Mealplan.c -o compiled/Mealplan.o
 compiled/TerminalInterface.o: source/TerminalInterface.c
-	gcc -c source/Terminal.c -o compiled/TerminalInterface.o
+	gcc -c source/TerminalInterface.c -o compiled/TerminalInterface.o
 clean:
 	@echo "Removing all .exe, .txt & .o files"
 	rm -f *.exe

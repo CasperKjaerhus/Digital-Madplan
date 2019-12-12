@@ -12,13 +12,11 @@ void show_user_ingredients(Recipe *mealplan){
     int s;
     char list_answer, dish;
     Recipe *recipes;
-    Recipe *mealplan;
 
     while(list_answer != 'n'){
             printf("Would you like to see ingredient specification on a meal? (y/n)\n");
             scanf(" %c", &list_answer);
                 if(list_answer == 'y'){
-                    
                     printf("Please enter the number of the meal of which you would like to see the ingredient list for.\n");
                         scanf("%d", &dish);
                         
@@ -32,13 +30,12 @@ void show_user_ingredients(Recipe *mealplan){
     }
     free(mealplan);
 }
- 
+
 
 void amount_of_people(Recipe *mealplan){
     int people, j, p, l;
     int recipe_amount, mealplan_recipe_amount = 7;
     Recipe *recipes;
-    Recipe *mealplan;
 
     printf("How many people are the mealplan for?\n");
     scanf(" %d", &people);
@@ -63,7 +60,6 @@ void change_a_meal(Recipe *mealplan){
     int i, k;
     int recipe_amount, mealplan_recipe_amount = 7;
     Recipe *recipes;
-    Recipe *mealplan;
      
     printf("Would you like to change one of the daily meals? (y/n).\n");
     scanf(" %c", &m);
@@ -77,8 +73,6 @@ void change_a_meal(Recipe *mealplan){
                 for(k = 0; k < 7; k++){
                     printf("DAY %d: %s\n", k + 1, mealplan[k].name);
                 }
-            }else if(m == 'n'){
-                return 0;
             }
         }       
 }
