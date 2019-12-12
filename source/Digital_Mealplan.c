@@ -67,6 +67,7 @@ int main(void){
                     }
                 }
             }
+            free(mealplan);
         }
         else if(n == 2){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
@@ -92,6 +93,6 @@ int main(void){
                 break;
             }
     }
-    freeRecipes(&mealplan, mealplan_recipe_amount);
-    freeRecipes(&recipes, recipe_amount);
+    freeRecipes(mealplan, mealplan_recipe_amount);
+    freeRecipes(recipes, recipe_amount);
 }
