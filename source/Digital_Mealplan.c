@@ -71,7 +71,7 @@ int main(void){
                     mealplan[6] = getWeightedRecipe(recipes, recipe_amount, planned_recipes, 7);
                 }
             }else if(m == 'n'){
-                return;
+                break;
         }
     }
     freeRecipes(&mealplan, mealplan_recipe_amount);
