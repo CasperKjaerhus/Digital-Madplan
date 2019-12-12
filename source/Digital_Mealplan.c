@@ -12,7 +12,6 @@ int main(void){
     int i, n = 0;
     char m;
     Recipe *recipes;
-    Recipe *planned_recipes;
     Recipe *mealplan;
 
     srand(time(NULL));
