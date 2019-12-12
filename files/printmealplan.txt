@@ -1,43 +1,42 @@
 {
-name="Sweet 'n' Sour Noodles With Tiger Prawns";
-ingredient="Wholemeal Noodles", amount="60.0", unit="Gram(s)";
-ingredient="Water", amount="500.0", unit="Milliliters";
-ingredient="Wine vinegar", amount="4.0", unit="Milliliters";
-ingredient="Sugar", amount="15.0", unit="Gram(s)";
-ingredient="Carrots", amount="75.0", unit="Gram(s)";
-ingredient="Green bell pepper", amount="60.0", unit="Gram(s)";
-ingredient="Red bell pepper", amount="60.0", unit="Gram(s)";
-ingredient="Egg", amount="1.0", unit="Egg(s)";
-ingredient="Tiger prawns", amount="60.0", unit="Gram(s)";
-ingredient="Tandoori spice", amount="3.5", unit="Gram(s)";
-ingredient="Ketjap manis", amount="0.0", unit="To taste";
+name="Salmon with roast potatoes";
+ingredient="Butter", amount="100.0", unit="Gram(s)";
+ingredient="Water", amount="13.0", unit="Milliliters";
+ingredient="Egg yolk", amount="1.0", unit="Yolk(s)";
+ingredient="Lemon juice", amount="2.0", unit="Milliliters";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Salmon", amount="75.0", unit="Gram(s)";
+ingredient="Potatoes", amount="100.0", unit="Gram(s)";
+ingredient="Thime", amount="2.0", unit="Stalks";
+ingredient="Olive oil", amount="6.0", unit="Gram(s)";
 }
 {
-name="Nordic curry stew";
-ingredient="Red lentils", amount="500.0", unit="Gram(s)";
-ingredient="Celeriac", amount="75.0", unit="Gram(s)";
-ingredient="Red onion", amount="50.0", unit="Gram(s)";
-ingredient="Edamame beans", amount="50.0", unit="Gram(s)";
-ingredient="Grated ginger", amount="5.0", unit="Gram(s)";
+name="Red kuri squash soup";
+ingredient="Red kuri squash", amount="200.0", unit="Gram(s)";
+ingredient="Potatoes", amount="125.0", unit="Gram(s)";
+ingredient="Vegetable stock", amount="50.0", unit="Milliliters";
 ingredient="Garlic", amount="2.0", unit="Clove(s)";
-ingredient="Lemon juice", amount="5.0", unit="Milliliters";
-ingredient="Ground cumin", amount="5.0", unit="Gram(s)";
+ingredient="Parsley", amount="2.0", unit="Stalks";
+ingredient="Thime", amount="2.0", unit="Stalks";
 ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
+ingredient="Wine vinegar", amount="4.0", unit="Milliliters";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Toasted rye bread", amount="60.0", unit="Gram(s)";
 }
 {
-name="Burgers";
-ingredient="Sesam brioche buns", amount="2.0", unit="Buns";
-ingredient="Minced ground beef", amount="150.0", unit="Gram(s)";
-ingredient="Tomatoes", amount="50.0", unit="Gram(s)";
-ingredient="Onion", amount="50.0", unit="Gram(s)";
-ingredient="Iceberg salad", amount="50.0", unit="Gram(s)";
-ingredient="Pickles", amount="40.0", unit="Gram(s)";
-ingredient="Gouda cheese", amount="25.0", unit="Gram(s)";
+name="Tortillas with Grilled Chicken";
+ingredient="Tortillas", amount="2.0", unit="Pieces";
+ingredient="Chicken fillets", amount="125.0", unit="Gram(s)";
+ingredient="Tomato pure", amount="1.0", unit="Can(s)";
+ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
+ingredient="Paprika", amount="1.5", unit="Gram(s)";
+ingredient="Cayenne", amount="1.5", unit="Gram(s)";
+ingredient="Chili powder", amount="1.5", unit="Gram(s)";
+ingredient="Olive oil", amount="5.0", unit="Milliliters";
+ingredient="Chopped red bell pepper", amount="15.0", unit="Gram(s)";
+ingredient="Black beans", amount="60.0", unit="Gram(s)";
+ingredient="Avocado", amount="75.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
-ingredient="Olive oil", amount="5.0", unit="Millimeters";
-ingredient="Tomato ketchup", amount="0.0", unit="To taste";
-ingredient="Chili Mayo", amount="0.0", unit="To taste";
 }
 {
 name="Salad with grilled chicken";
@@ -54,34 +53,6 @@ ingredient="Olive oil", amount="6.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
 }
 {
-name="Toasted ryebread sandwich with chicken and greens";
-ingredient="Garlic", amount="1.0", unit="Clove(s)";
-ingredient="Lemon juice", amount="2.0", unit="Milliliters";
-ingredient="Chicken slices", amount="100.0", unit="Gram(s)";
-ingredient="Red bell pepper", amount="40.0", unit="Gram(s)";
-ingredient="Mozzarella", amount="20.0", unit="Gram(s)";
-ingredient="Gouda cheese", amount="20.0", unit="Gram(s)";
-ingredient="Iceberg salad", amount="25.0", unit="Gram(s)";
-ingredient="Cherry tomatoes", amount="25.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
-name="Pasta with salmon";
-ingredient="Fettucine pasta", amount="75.0", unit="Gram(s)";
-ingredient="Milk", amount="125.0", unit="Milliliters";
-ingredient="Flour", amount="12.5", unit="Gram(s)";
-ingredient="Butter", amount="12.5", unit="Gram(s)";
-ingredient="Parmesan cheese", amount="8.0", unit="Gram(s)";
-ingredient="Mozzarella", amount="8.0", unit="Gram(s)";
-ingredient="Red bell pepper", amount="40.0", unit="Gram(s)";
-ingredient="Garlic", amount="1.0", unit="Clove(s)";
-ingredient="Edamame beans", amount="40.0", unit="Gram(s)";
-ingredient="Cherry tomatoes", amount="50.0", unit="Gram(s)";
-ingredient="Salmon", amount="75.0", unit="Gram(s)";
-ingredient="Olive oil", amount="6.0", unit="Gram(s)";
-ingredient="Salt and pepper", amount="0.0", unit="To taste";
-}
-{
 name="Lasagna";
 ingredient="Minced ground beef", amount="125.0", unit="Gram(s)";
 ingredient="Lasagne noodles", amount="2.5", unit="Lasagna noodles";
@@ -94,4 +65,32 @@ ingredient="Olive oil", amount="5.0", unit="Milliliters";
 ingredient="Mozzarella cheese", amount="25.0", unit="Gram(s)";
 ingredient="Salt and pepper", amount="0.0", unit="To taste";
 ingredient="Italian seasoning", amount="0.0", unit="To taste";
+}
+{
+name="Nordic curry stew";
+ingredient="Red lentils", amount="500.0", unit="Gram(s)";
+ingredient="Celeriac", amount="75.0", unit="Gram(s)";
+ingredient="Red onion", amount="50.0", unit="Gram(s)";
+ingredient="Edamame beans", amount="50.0", unit="Gram(s)";
+ingredient="Grated ginger", amount="5.0", unit="Gram(s)";
+ingredient="Garlic", amount="2.0", unit="Clove(s)";
+ingredient="Lemon juice", amount="5.0", unit="Milliliters";
+ingredient="Ground cumin", amount="5.0", unit="Gram(s)";
+ingredient="Creme fraiche", amount="50.0", unit="Milliliters";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+}
+{
+name="Shakshuka";
+ingredient="Onion", amount="75.0", unit="Gram(s)";
+ingredient="Red kuri squash", amount="100.0", unit="Gram(s)";
+ingredient="Garlic", amount="1.5", unit="Clove(s)";
+ingredient="Fresh chili", amount="5.0", unit="Gram(s)";
+ingredient="Crushed tomatoes", amount="1.0", unit="Can(s)";
+ingredient="Eggs", amount="2.0", unit="Egg(s)";
+ingredient="Paprika", amount="4.0", unit="Gram(s)";
+ingredient="Ground koriander", amount="3.0", unit="Gram(s)";
+ingredient="Ground cumin", amount="3.0", unit="Gram(s)";
+ingredient="Salt and pepper", amount="0.0", unit="To taste";
+ingredient="Olive oil", amount="6.0", unit="Gram(s)";
+ingredient="Bread of own choice", amount="60.0", unit="Gram(s)";
 }
