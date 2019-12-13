@@ -15,37 +15,52 @@ void new_mealplan(Recipe *recipes, int amount_of_recipes){
 
     amount_of_people(mealplan);
     show_user_ingredients(mealplan);
-    changeMeal(mealplan);
+    changeMeal(recipes, mealplan);
 
     free(mealplan);
 }
 
-void previous_mealplan(){
+void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes){
     Recipe *mealplan;
-    mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-    last_mealplan(mealplan);
+
+    mealplan = readRecipes(mealplan_recipe_amount, "files/printmealplan.txt");
+    last_mealplan(recipes, mealplan);
+    
     free(mealplan);
 }
 
-void last_mealplan(Recipe *mealplan){
+void last_mealplan(Recipe *recipes, Recipe *mealplan){
     int u, e;
     int mealplan_recipe_amount = 7;
-    printf("Choose an option:\n");
-            printf("1) To see ingredients on af meal.\n2) To change a meal.\n3) To see current mealplan.\n");
-            scanf(" %d", &u);
-            if(u == 1){
-                show_user_ingredients(mealplan);
-            }else if(u == 2){
-                changeMeal(mealplan);
-            }else if(u == 3){
-                for(e = 0; e < 7; e++){
-                    printf("%s", mealplan[e].name);
+    int people;
+    
+
+    printMealplan(mealplan, 7);
+
+    printf("\nChoose an option:\n");
+    printf("1) To see ingredients on af meal.\n2) To change a meal.\n3) To see current mealplan.\n4) Change amount of people, the mealplan is for.\n");
+    scanf(" %d", &u);
+    
+    if(u == 1){
+        show_user_ingredients(mealplan);
+    }else if(u == 2){
+        changeMeal(recipes, mealplan);
+    }else if(u == 3){
+        for(e = 0; e < 7; e++){
+            printf("%s", mealplan[e].name);
+        }
+    }else if(u == 4){
+        printf("How many people is the mealplan for?\n");
+        scanf(" %d", &people);
+            for(int i = 0; i < 7; i++){
+                for(int j = 0; j < mealplan[i].amount_of_ingredients; j++){
+                        mealplan[i].ingredients[j].amount *= people;
                 }
-            }else{
-                printf("invalid input - returning to the main menu...");
             }
-            printRecipes(mealplan, mealplan_recipe_amount);
+    }else
+        printf("invalid input - returning to the main menu...");
 }
+
 void show_user_ingredients(Recipe *mealplan){
     int s;
     char list_answer, dish;
@@ -92,11 +107,10 @@ void printMealplan(Recipe *mealplan, int amount){
     }
 }
 
-void changeMeal(Recipe *mealplan){
+void changeMeal(Recipe *recipes, Recipe *mealplan){
     char m;
     int i, k;
     int recipe_amount, mealplan_recipe_amount = 7;
-    Recipe *recipes;
      
     printf("Would you like to change one of the daily meals? (y/n).\n");
     scanf(" %c", &m);

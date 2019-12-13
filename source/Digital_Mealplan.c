@@ -12,36 +12,27 @@
 
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
-    int n = 0;
+    int n = 1;
     Recipe *recipes;
     Recipe *mealplan;
 
     srand(time(NULL));
 
-    /*recipes = readRecipes(&recipe_amount);
-    mealplan = GenerateMealplan(recipes, recipe_amount);
-    printRecipes(mealplan, 7);
-
-    printf("\n\n");
-
-    print_shoppinglist(mealplan, 7);*/
-    /*printRecipes(recipes, recipe_amount); */
-
-    recipes = readRecipes(&recipe_amount, "files/recipes.txt");
+    recipes = readRecipes(&recipe_amount, "files/recipes.txt"); /*Reads all recipes from recipes.txt into memory*/
     
-    while(n >= 0 && n <= 3){
+    while(n >= 1 && n <= 3){
         printf("\nMealplan Generator\n");
         printf("Choose an option:\n");
         printf("1) To create a new Mealplan.\n");
         printf("2) To access your previous Mealplan.\n");
-        printf("3) To get Shoppinglist.\n");
+        printf("3) To print a Shoppinglist to file.\n");
         scanf(" %d", &n);
 
         if(n == 1){
             new_mealplan(recipes, recipe_amount);
         }
         else if(n == 2){
-            previous_mealplan(mealplan);
+            previous_mealplan(&mealplan_recipe_amount, recipes);
         }
         else if(n == 3){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
