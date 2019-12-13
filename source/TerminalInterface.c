@@ -30,8 +30,7 @@ void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes, int amount_
 }
 
 void last_mealplan(Recipe *recipes, Recipe *mealplan, int amount_of_recipes){
-    int u;
-    int mealplan_recipe_amount = 7;
+    int u;  
     int people;
 
     printMealplan(mealplan, 7);
@@ -59,8 +58,6 @@ void last_mealplan(Recipe *recipes, Recipe *mealplan, int amount_of_recipes){
 
 void showIng_changeMeal(Recipe *recipes, Recipe *mealplan, int recipe_amount){
     int i, d, dish;
-    char list_answer, m;
-    int mealplan_recipe_amount = 7;
 
     while(d != 0){
         printf("\nChoose an option:\n");
@@ -90,8 +87,7 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan, int recipe_amount){
 }
 
 void amount_of_people(Recipe *mealplan){
-    int people, j, p, l, mealplan_recipe_amount = 7;
-    Recipe *recipes;
+    int people, mealplan_recipe_amount = 7;
 
     printf("How many people is the mealplan for?\n");
     scanf(" %d", &people);
