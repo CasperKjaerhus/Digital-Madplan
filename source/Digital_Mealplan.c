@@ -8,8 +8,6 @@
 #include "TerminalInterface.h"
 #define WEEK 7
 
-
-
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
     int n = 1;
