@@ -106,7 +106,7 @@ void changeMeal(Recipe *mealplan){
             scanf(" %d", &i);
             
             if(i >= 1 && i <= 7){
-                mealplan[i-1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                mealplan[i - 1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
                 for(k = 0; k < 7; k++){
                     printf("DAY %d: %s\n", k + 1, mealplan[k].name);
                 }
