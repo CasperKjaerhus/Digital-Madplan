@@ -14,9 +14,6 @@ void new_mealplan(Recipe *recipes, int amount_of_recipes){
     mealplan = GenerateMealplan(recipes, amount_of_recipes);
 
     amount_of_people(mealplan);
-    /* show_user_ingredients(mealplan);
-    changeMeal(recipes, mealplan); */
-
     showIng_changeMeal(recipes, mealplan);
 
     free(mealplan);
@@ -31,17 +28,16 @@ void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes){
     
     free(mealplan);
 }
-
+/* Se nedenstående funktioner showIng_changeMeal og amount_of_people - denne funktion samler disse */
 void last_mealplan(Recipe *recipes, Recipe *mealplan){
     int u;
     int mealplan_recipe_amount = 7;
     int people;
-    
 
     printMealplan(mealplan, 7);
 
     printf("\nChoose an option:\n");
-    printf("1) To see ingredients on af meal or to change a meal.\n2) To see current mealplan.\n3) Change amount of people, the mealplan is for.\n");
+    printf("1) To see ingredients on a meal OR to change a meal on the current mealplan.\n2) To see current mealplan.\n3) Change amount of people that the mealplan is for.\n");
     scanf(" %d", &u);
     
     if(u == 1){
@@ -68,15 +64,19 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
     char list_answer, m;
     int recipe_amount, mealplan_recipe_amount = 7;
 
+    /* Vi giver brugeren mulighed for at navigerer rundt, herunder se ingredienslisten for en opskrift og ændring af en opskrift i madplanen */
     while(d != 0){
         printf("\nChoose an option:\n");
         printf("0) Main menu.\n1) See ingredient specification on a meal.\n2) Change a current meal.\n");
         scanf(" %d", &d);
-
+        
+        /* Brugeren har valgt at se ingredienslisten for en given opskrift i madplanen */
         if(d == 1){
             printf("Please enter the number of the meal of which you would like to see the ingredient list for.\n");
             scanf(" %d", &dish);
-
+            
+            /* Brugeren vælger en opskrift mellem 1 og 7 - dernæst bruges et for-loop til at liste de forskellige ingredienser i netop den valgte opskrift */
+            /* Vi subtraherer med 1, idet vores mealplan array starter i 0 - dvs. vælger brugeren opskrift 2, så vil dette være index 1 i arrayet */
             if(dish >= 1 && dish <= 7){
                 printf("\n%s\n", mealplan[dish - 1].name);
                 for(int s = 0; s < mealplan[dish - 1].amount_of_ingredients; s++){
@@ -84,7 +84,7 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
                 }
             }
         }else if(d == 2){
-            /*Det gik sku galt her :(*/
+            /* Brugeren vælger at udskifte en opskrift i madplanen, og udbytte den med en anden som IKKE er i den nuværende madplan */
             printf("Press the number of the meal, of which you would like to change!\n");
             scanf(" %d", &i);
 
@@ -96,52 +96,8 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
     }
 }
 
-
-/* 
-void show_user_ingredients(Recipe *mealplan){
-    int s;
-    char list_answer, dish;
-    Recipe *recipes;
-
-    while(list_answer != 'n'){
-            printf("Would you like to see ingredient specification on a meal? (y/n)\n");
-            scanf(" %c", &list_answer);
-                if(list_answer == 'y'){
-                    printf("Please enter the number of the meal of which you would like to see the ingredient list for.\n");
-                        scanf(" %d", &dish);
-                        
-                    if(dish >= 1 && dish <= 7){
-                        printf("\n%s\n", mealplan[dish - 1].name);
-                        for(s = 0; s < mealplan[dish - 1].amount_of_ingredients; s++){
-                            printf("%s %lf %s\n", mealplan[dish - 1].ingredients[s].name, mealplan[dish - 1].ingredients[s].amount, mealplan[dish - 1].ingredients[s].unit);
-                        }
-                    }
-                }
-    }
-}
-
-void changeMeal(Recipe *recipes, Recipe *mealplan){
-    char m;
-    int i, k;
-    int recipe_amount, mealplan_recipe_amount = 7;
-     
-    printf("Would you like to change one of the daily meals? (y/n).\n");
-    scanf(" %c", &m);
-
-        if(m == 'y'){
-            printf("Press the number of the meal, of which you would like to change!\n");
-            scanf(" %d", &i);
-            
-            if(i >= 1 && i <= 7){
-                mealplan[i-1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                for(k = 0; k < 7; k++){
-                    printf("DAY %d: %s\n", k + 1, mealplan[k].name);
-                }
-            }
-        }
-}
-*/
-
+/* Funktion der giver brugeren mulighed for at tilpasse den genereret madplan til et bestemt antal personer */
+/* Ingredienserne bliver dermed ganget op med dette tal (de premade opskrifter er lavet for 1 person) */
 void amount_of_people(Recipe *mealplan){
     int people, j, p, l, mealplan_recipe_amount = 7;
     Recipe *recipes;
@@ -154,34 +110,15 @@ void amount_of_people(Recipe *mealplan){
              mealplan[i].ingredients[j].amount *= people;
         }
     }
-    /*printRecipes(mealplan, mealplan_recipe_amount);*/
+    /* Vi printer den nye mealplan, som indeholder den udskiftede opskrift */
     printMealplan(mealplan, 7);
     recipe_to_file(mealplan, mealplan_recipe_amount);
 }
 
+/* Formateret printning af madplanen */ 
 void printMealplan(Recipe *mealplan, int amount){
     for(int i = 0; i < 7; i++){
         printf("DAY %d: %s\n", i + 1, mealplan[i].name);
     }
 }
 
-void changeMeal(Recipe *recipes, Recipe *mealplan){
-    char m;
-    int i, k;
-    int recipe_amount, mealplan_recipe_amount = 7;
-     
-    printf("Would you like to change one of the daily meals? (y/n).\n");
-    scanf(" %c", &m);
-
-        if(m == 'y'){
-            printf("Press the number of the meal, of which you would like to change!\n");
-            scanf(" %d", &i);
-            
-            if(i >= 1 && i <= 7){
-                mealplan[i - 1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
-                for(k = 0; k < 7; k++){
-                    printf("DAY %d: %s\n", k + 1, mealplan[k].name);
-                }
-            }
-        }
-}

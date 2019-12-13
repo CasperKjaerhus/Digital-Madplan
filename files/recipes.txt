@@ -44,7 +44,7 @@ ingredient="Red lentils", amount="500", unit="Gram(s)";
 ingredient="Celeriac", amount="75", unit="Gram(s)";
 ingredient="Red onion", amount="50", unit="Gram(s)";
 ingredient="Edamame beans", amount="50", unit="Gram(s)";
-ingredient="Grated ginger", amount="5", unit="Gram(s)";
+ingredient="Ginger", amount="5", unit="Gram(s)";
 ingredient="Garlic", amount="2", unit="Clove(s)";
 ingredient="Lemon juice", amount="5", unit="Milliliters";
 ingredient="Ground cumin", amount="5", unit="Gram(s)";
