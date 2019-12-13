@@ -141,9 +141,11 @@ int countIngredientInRecipe(char *name){
         if(strstr(line, name) != NULL){ /*Skips all lines that don't include name*/
             for(i = 0; strncmp(line, "}", 1) != 0; i++) /*Counts all lines until } is reached*/
                 fgets(line, 100, file);
+            fclose(file);
             return i-1; /*-1 so to not count the line with "}" in it*/
         }
     }
+    fclose(file);
     return 0;
 }
 
@@ -163,5 +165,6 @@ int countRecipes(char *filePlace){
         printf("Error: %s syntax error, missing \"{\" or \"}\"", filePlace);
         exit(EXIT_FAILURE);
     }
+    fclose(file);
     return opens;
 }
