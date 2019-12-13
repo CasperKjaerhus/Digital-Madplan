@@ -14,22 +14,22 @@ void new_mealplan(Recipe *recipes, int amount_of_recipes){
     mealplan = GenerateMealplan(recipes, amount_of_recipes);
 
     amount_of_people(mealplan);
-    showIng_changeMeal(recipes, mealplan);
+    showIng_changeMeal(recipes, mealplan, amount_of_recipes);
 
     free(mealplan);
 }
 
-void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes){
+void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes, int amount_of_recipes){
     Recipe *mealplan;
 
     mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-    last_mealplan(recipes, mealplan); /*Der er noget der fejler her!*/
+    last_mealplan(recipes, mealplan, amount_of_recipes); /*Der er noget der fejler her!*/
     recipe_to_file(mealplan, 7);
     
     free(mealplan);
 }
 /* Se nedenstående funktioner showIng_changeMeal og amount_of_people - denne funktion samler disse */
-void last_mealplan(Recipe *recipes, Recipe *mealplan){
+void last_mealplan(Recipe *recipes, Recipe *mealplan, int amount_of_recipes){
     int u;
     int mealplan_recipe_amount = 7;
     int people;
@@ -41,7 +41,7 @@ void last_mealplan(Recipe *recipes, Recipe *mealplan){
     scanf(" %d", &u);
     
     if(u == 1){
-        showIng_changeMeal(recipes, mealplan);
+        showIng_changeMeal(recipes, mealplan, amount_of_recipes);
     }else if(u == 2){
         printMealplan(mealplan, mealplan_recipe_amount);
     }else if(u == 3){
@@ -57,10 +57,8 @@ void last_mealplan(Recipe *recipes, Recipe *mealplan){
 }
 
 
-void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
+void showIng_changeMeal(Recipe *recipes, Recipe *mealplan, int recipe_amount){
     int i, d, dish;
-    char list_answer, m;
-    int recipe_amount, mealplan_recipe_amount = 7;
 
     /* Vi giver brugeren mulighed for at navigerer rundt, herunder se ingredienslisten for en opskrift og ændring af en opskrift i madplanen */
     while(d != 0){
@@ -97,8 +95,7 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
 /* Funktion der giver brugeren mulighed for at tilpasse den genereret madplan til et bestemt antal personer */
 /* Ingredienserne bliver dermed ganget op med dette tal (de premade opskrifter er lavet for 1 person) */
 void amount_of_people(Recipe *mealplan){
-    int people, j, p, l, mealplan_recipe_amount = 7;
-    Recipe *recipes;
+    int people, mealplan_recipe_amount = 7;
 
     printf("How many people is the mealplan for?\n");
     scanf(" %d", &people);
