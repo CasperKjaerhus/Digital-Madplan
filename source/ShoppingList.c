@@ -10,7 +10,6 @@ Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes){
          j++;
       }
    }
-
    return shoppinglist;
 }
 

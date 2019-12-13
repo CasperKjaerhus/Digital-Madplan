@@ -57,7 +57,6 @@ void last_mealplan(Recipe *recipes, Recipe *mealplan, int amount_of_recipes){
     }
 }
 
-
 void showIng_changeMeal(Recipe *recipes, Recipe *mealplan, int recipe_amount){
     int i, d, dish;
     char list_answer, m;
@@ -103,6 +102,7 @@ void amount_of_people(Recipe *mealplan){
         }
     }
     printMealplan(mealplan, 7);
+    printf("Test");
     recipe_to_file(mealplan, mealplan_recipe_amount);
 }
 

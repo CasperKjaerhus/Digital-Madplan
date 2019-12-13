@@ -8,7 +8,6 @@
 #include <time.h>
 #include "ShoppingList.h"
 
-
 void new_mealplan(Recipe *recipes, int amount_of_recipes);
 void amount_of_people(Recipe *mealplan);
 void printMealplan(Recipe *mealplan, int amount);
