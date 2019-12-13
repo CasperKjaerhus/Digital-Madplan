@@ -22,7 +22,7 @@ int main(void){
     
     while(n >= 1 && n <= 3){
         printf("\nMealplan Generator\n");
-        printf("Choose an option:\n");
+        printf("Choose an option (0 to quit):\n");
         printf("1) To create a new Mealplan.\n");
         printf("2) To access your previous Mealplan.\n");
         printf("3) To print a Shoppinglist to file.\n");
@@ -42,5 +42,5 @@ int main(void){
     }
     freeRecipes(recipes, recipe_amount);
 
-return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

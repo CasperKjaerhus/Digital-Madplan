@@ -27,7 +27,7 @@ void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes){
    FILE *shoppinglist_file = openFile("Shopping_list.txt", "w+");
    fprintf(shoppinglist_file, "Shopping List:\n");
    fprintf(shoppinglist_file, "_________________\n");
-   fprintf(shoppinglist_file, "ingredient name:\t|\tamount:\n\n");
+   fprintf(shoppinglist_file, "ingredient name:\t\tamount:\n\n");
    for(i = 0; i < uniques; i++){
       if(summed_shoplist[i].amount == 0.0)
          fprintf(shoppinglist_file, "%s\n", summed_shoplist[i].name);
@@ -35,6 +35,7 @@ void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes){
          fprintf(shoppinglist_file, "%-31s %-.1f %s\n", summed_shoplist[i].name, summed_shoplist[i].amount, summed_shoplist[i].unit);
    }
 
+   fclose(shoppinglist_file);
    free(summed_shoplist);
    free(shoplist);
 }
