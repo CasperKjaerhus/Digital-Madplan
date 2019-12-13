@@ -80,7 +80,7 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan, int recipe_amount){
         }else if(d == 2){
             printf("Press the number of the meal, of which you would like to change!\n");
             scanf(" %d", &i);
-
+            
             if(i >= 1 && i <= 7){
                 mealplan[i-1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
                 printMealplan(mealplan, 7);
@@ -95,7 +95,6 @@ void amount_of_people(Recipe *mealplan){
 
     printf("How many people is the mealplan for?\n");
     scanf(" %d", &people);
-    
     for(int i = 0; i < 7; i++){
         for(int j = 0; j < mealplan[i].amount_of_ingredients; j++){
              mealplan[i].ingredients[j].amount *= people;
