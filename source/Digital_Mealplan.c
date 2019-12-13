@@ -8,8 +8,6 @@
 #include "TerminalInterface.h"
 #define WEEK 7
 
-
-
 int main(void){
     int recipe_amount, mealplan_recipe_amount = 7;
     int n = 1;
@@ -32,7 +30,7 @@ int main(void){
             new_mealplan(recipes, recipe_amount);
         }
         else if(n == 2){
-            previous_mealplan(&mealplan_recipe_amount, recipes);
+            previous_mealplan(&mealplan_recipe_amount, recipes, recipe_amount);
         }
         else if(n == 3){
             mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");

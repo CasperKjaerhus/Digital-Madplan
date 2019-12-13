@@ -10,7 +10,6 @@ Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes){
          j++;
       }
    }
-
    return shoppinglist;
 }
 
@@ -91,6 +90,7 @@ int isUniqueIngredient(Ingredient *unique_array, int unique_amount, Ingredient i
 
    return 1;
 }
+
 int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
     int amount = 0;
     for(int i = 0; i < amount_of_recipes; i++){
