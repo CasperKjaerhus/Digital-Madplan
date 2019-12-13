@@ -164,3 +164,24 @@ void printMealplan(Recipe *mealplan, int amount){
         printf("DAY %d: %s\n", i + 1, mealplan[i].name);
     }
 }
+
+void changeMeal(Recipe *recipes, Recipe *mealplan){
+    char m;
+    int i, k;
+    int recipe_amount, mealplan_recipe_amount = 7;
+     
+    printf("Would you like to change one of the daily meals? (y/n).\n");
+    scanf(" %c", &m);
+
+        if(m == 'y'){
+            printf("Press the number of the meal, of which you would like to change!\n");
+            scanf(" %d", &i);
+            
+            if(i >= 1 && i <= 7){
+                mealplan[i - 1] = getWeightedRecipe(recipes, recipe_amount, mealplan, 7);
+                for(k = 0; k < 7; k++){
+                    printf("DAY %d: %s\n", k + 1, mealplan[k].name);
+                }
+            }
+        }
+}
