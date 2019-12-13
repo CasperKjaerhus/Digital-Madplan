@@ -44,7 +44,6 @@ void last_mealplan(Recipe *recipes, Recipe *mealplan){
         showIng_changeMeal(recipes, mealplan);
     }else if(u == 2){
         printMealplan(mealplan, mealplan_recipe_amount);
-        }
     }else if(u == 3){
         printf("How many people is the mealplan for?\n");
         scanf(" %d", &people);
