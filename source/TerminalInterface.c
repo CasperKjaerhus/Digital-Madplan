@@ -23,12 +23,12 @@ void previous_mealplan(int *mealplan_recipe_amount, Recipe *recipes){
     Recipe *mealplan;
 
     mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-    last_mealplan(recipes, mealplan); /*Der er noget der fejler her!*/
+    last_mealplan(recipes, mealplan);
     recipe_to_file(mealplan, 7);
     
     free(mealplan);
 }
-/* Se nedenstående funktioner showIng_changeMeal og amount_of_people - denne funktion samler disse */
+/* This function assembles the functions showIng_changeMeal and amount_of_people */
 void last_mealplan(Recipe *recipes, Recipe *mealplan){
     int u;
     int mealplan_recipe_amount = 7;
@@ -62,19 +62,19 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
     char list_answer, m;
     int recipe_amount, mealplan_recipe_amount = 7;
 
-    /* Vi giver brugeren mulighed for at navigerer rundt, herunder se ingredienslisten for en opskrift og ændring af en opskrift i madplanen */
+    /* The user has the option to navigate around in the program, e.g. to see ingredientlist for a given recipe and also to change a recipe in the generated mealplan */
     while(d != 0){
         printf("\nChoose an option:\n");
         printf("0) Main menu.\n1) See ingredient specification on a meal.\n2) Change a current meal.\n");
         scanf(" %d", &d);
-        
-        /* Brugeren har valgt at se ingredienslisten for en given opskrift i madplanen */
+    
+        /* The user has choosen to see ingredientlist for a recipe in the generated mealplan */
         if(d == 1){
             printf("Please enter the number of the meal of which you would like to see the ingredient list for.\n");
             scanf(" %d", &dish);
             
-            /* Brugeren vælger en opskrift mellem 1 og 7 - dernæst bruges et for-loop til at liste de forskellige ingredienser i netop den valgte opskrift */
-            /* Vi subtraherer med 1, idet vores mealplan array starter i 0 - dvs. vælger brugeren opskrift 2, så vil dette være index 1 i arrayet */
+            /* The user chooses a number between 1 and 7 - then a for-loop is used to list the ingredients in the choosen recipe */ 
+            /* We subtract with 1 becuase the mealplan array starts in index 0 */
             if(dish >= 1 && dish <= 7){
                 printf("\n%s\n", mealplan[dish - 1].name);
                 for(int s = 0; s < mealplan[dish - 1].amount_of_ingredients; s++){
@@ -82,7 +82,7 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
                 }
             }
         }else if(d == 2){
-            /* Brugeren vælger at udskifte en opskrift i madplanen, og udbytte den med en anden som IKKE er i den nuværende madplan */
+            /* The user has chosen to change a recipe in the generated mealplan - replaces a recipe with a recipe that is NOT in the current mealplan */
             printf("Press the number of the meal, of which you would like to change!\n");
             scanf(" %d", &i);
 
@@ -94,8 +94,8 @@ void showIng_changeMeal(Recipe *recipes, Recipe *mealplan){
     }
 }
 
-/* Funktion der giver brugeren mulighed for at tilpasse den genereret madplan til et bestemt antal personer */
-/* Ingredienserne bliver dermed ganget op med dette tal (de premade opskrifter er lavet for 1 person) */
+/* Function that gives the user the option to adjust the mealplan that is yet-to-be generated to a given amount of people  */
+/* Ingredients are then multiplied by the amount of people that the user inputs (the recipes are premade to 1 person) */
 void amount_of_people(Recipe *mealplan){
     int people, j, p, l, mealplan_recipe_amount = 7;
     Recipe *recipes;
@@ -108,12 +108,12 @@ void amount_of_people(Recipe *mealplan){
              mealplan[i].ingredients[j].amount *= people;
         }
     }
-    /* Vi printer den nye mealplan, som indeholder den udskiftede opskrift */
+    /* Here we print the recipe that is now adjusted to the inputtet amount of people*/
     printMealplan(mealplan, 7);
     recipe_to_file(mealplan, mealplan_recipe_amount);
 }
 
-/* Formateret printning af madplanen */ 
+/* Formattet print of the whole mealplan */ 
 void printMealplan(Recipe *mealplan, int amount){
     for(int i = 0; i < 7; i++){
         printf("DAY %d: %s\n", i + 1, mealplan[i].name);
