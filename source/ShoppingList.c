@@ -1,16 +1,17 @@
 #include "ShoppingList.h"
 
+/*Gets all the ingredients in a given array of recipes, and puts them in to one Ingredient-type array*/
 Ingredient *shopping_list(Recipe *recipe_array_input, int amount_of_recipes){
    int i, z, j = 0, total_ingredients = getIngredientsInRecipes(recipe_array_input, amount_of_recipes);
    Ingredient *shoppinglist = (Ingredient *) chkMalloc(sizeof(Ingredient)*total_ingredients, "Shopping List");
    
-   for(i = 0; i < amount_of_recipes; i++){
-      for(z = 0; z < recipe_array_input[i].amount_of_ingredients; z++){
-         shoppinglist[j] = recipe_array_input[i].ingredients[z];
-         j++;
+   for(i = 0; i < amount_of_recipes; i++){                              // Goes through 7 recipes, if assumed that the mealplan is for a whole weak.
+      for(z = 0; z < recipe_array_input[i].amount_of_ingredients; z++){ // If a recipe contains for example 5 ingredients, it will loop for 5 times.
+         shoppinglist[j] = recipe_array_input[i].ingredients[z];        // Adds the ith-element of the ingredient to the index of j.
+         j++;                                                           // j is used because it counts up, and is not affected by the z and i, so the elements wont be replaced.
       }
    }
-   return shoppinglist;
+   return shoppinglist;                                                 // Returns an array which contains the ingredients of all the ingredients in a give nrecipe-arrays.
 }
 
 void print_shoppinglist(Recipe *recipe_input, int amount_of_recipes){
@@ -90,7 +91,6 @@ int isUniqueIngredient(Ingredient *unique_array, int unique_amount, Ingredient i
 
    return 1;
 }
-
 int getIngredientsInRecipes(Recipe *recipes, int amount_of_recipes){
     int amount = 0;
     for(int i = 0; i < amount_of_recipes; i++){
