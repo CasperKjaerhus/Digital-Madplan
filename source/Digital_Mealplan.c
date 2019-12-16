@@ -8,36 +8,46 @@
 #include "TerminalInterface.h"
 
 int main(void){
-    int recipe_amount, mealplan_recipe_amount = 7;
-    int n = 1;
+    int recipe_amount;
     Recipe *recipes;
-    Recipe *mealplan;
 
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount, "files/recipes.txt"); /*Reads all recipes from recipes.txt into memory*/
-    
-    while(n >= 1 && n <= 3){
-        printf("\nMealplan Generator\n");
-        printf("Choose an option (0 to quit):\n");
-        printf("1) To create a new Mealplan.\n");
-        printf("2) To access your previous Mealplan.\n");
-        printf("3) To print a Shoppinglist to file.\n");
-        scanf(" %d", &n);
 
-        if(n == 1){
-            new_mealplan(recipes, recipe_amount);
-        }
-        else if(n == 2){
-            previous_mealplan(&mealplan_recipe_amount, recipes, recipe_amount);
-        }
-        else if(n == 3){
-            mealplan = readRecipes(&mealplan_recipe_amount, "files/printmealplan.txt");
-            print_shoppinglist(mealplan, mealplan_recipe_amount);
-            free(mealplan);
-        }
+    int *counters = (int *) chkCalloc(sizeof(int) * recipe_amount, "counter allo");
+
+    printMealplan(&recipes[0], 1);
+
+    for(int i = 1; i < recipe_amount; i++){
+       int match = calcIngredientMatches(recipes[0], recipes[i]);
+       printf("%-50s Score: %d\n", recipes[i].name, match);
     }
+
+    for(unsigned int i = 0; i < 100000000; i++){
+        if(i % 10000000 == 0 && i != 0){
+            long double percentage = ((double) i / 100000000.0) * 100.0;
+            printf("%lf%% finished; i:%d\n", (double) percentage, i);
+        }
+        Recipe new = getWeightedRecipe(recipes, recipe_amount, &recipes[0], 1);
+        int index = getIndex(recipes, recipe_amount, new);
+        counters[index]++;
+    }
+
+    for(int i = 0; i < recipe_amount; i++)
+        printf("%s has been chosen %d times\n", recipes[i].name, counters[i]);
+
     freeRecipes(recipes, recipe_amount);
 
     return EXIT_SUCCESS;
 }
+
+
+int getIndex(Recipe *recipes, int recipe_amount, Recipe target){
+    for(int i = 0; i < recipe_amount; i++){
+        if(strcmp(recipes[i].name, target.name) == 0)
+            return i;
+    }
+    return -1;
+}
+

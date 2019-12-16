@@ -122,7 +122,7 @@ void updateAmountOfPeople(Recipe *mealplan, int amount_currently, int amount_to_
 
 /* Formateret printning af madplanen */ 
 void printMealplan(Recipe *mealplan, int amount){
-    for(int i = 0; i < 7; i++){
+    for(int i = 0; i < amount; i++){
         printf("DAY %d: %s\n", i + 1, mealplan[i].name);
     }
 }
