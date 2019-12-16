@@ -119,4 +119,3 @@ void printMealplan(Recipe *mealplan, int amount){
         printf("DAY %d: %s\n", i + 1, mealplan[i].name);
     }
 }
-
