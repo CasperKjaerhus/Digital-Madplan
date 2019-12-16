@@ -10,32 +10,41 @@
 int main(void){
     int recipe_amount;
     Recipe *recipes;
+    int testRecipe = 6;
 
     srand(time(NULL));
 
     recipes = readRecipes(&recipe_amount, "files/recipes.txt"); /*Reads all recipes from recipes.txt into memory*/
-
+    Recipe TestRecipes[6] = {recipes[0], recipes[1], recipes[11], recipes[12], recipes[8], recipes[10]};
     int *counters = (int *) chkCalloc(sizeof(int) * recipe_amount, "counter allo");
 
-    printMealplan(&recipes[0], 1);
-
-    for(int i = 1; i < recipe_amount; i++){
-       int match = calcIngredientMatches(recipes[0], recipes[i]);
-       printf("%-50s Score: %d\n", recipes[i].name, match);
-    }
-
-    for(unsigned int i = 0; i < 100000000; i++){
-        if(i % 10000000 == 0 && i != 0){
-            long double percentage = ((double) i / 100000000.0) * 100.0;
-            printf("%lf%% finished; i:%d\n", (double) percentage, i);
+    printMealplan(TestRecipes, testRecipe);
+    for(int j = 0; j < recipe_amount; j++){
+        int match = 0;
+        for(int i = 0; i < testRecipe; i++){
+            match += calcIngredientMatches(TestRecipes[i], recipes[j]);
+            if(i == testRecipe-1)
+                printf("%-50s Score: %d\n", recipes[j].name, match);
         }
-        Recipe new = getWeightedRecipe(recipes, recipe_amount, &recipes[0], 1);
+    }
+    int tries = 10000000;
+    for(unsigned int i = 0; i < tries; i++){
+        if(i % ((tries) / 100) == 0 && i != 0){
+            long double percentage = ((double) i / (double) tries) * 100.0;
+            printf("%.0lf%% finished; i:%d\n", (double) percentage, i);
+        }
+        Recipe new = getWeightedRecipe(recipes, recipe_amount, TestRecipes, testRecipe);
         int index = getIndex(recipes, recipe_amount, new);
         counters[index]++;
     }
-
-    for(int i = 0; i < recipe_amount; i++)
-        printf("%s has been chosen %d times\n", recipes[i].name, counters[i]);
+    if(!doesFileExist("procenter.txt")){
+        createFile("procenter.txt");
+    }
+    FILE *numbers = openFile("procenter.txt", "w+");
+    for(int i = 0; i < recipe_amount; i++){
+        printf("%s has been chosen %d times, thats %.2lf%%\n", recipes[i].name, counters[i], ((double) counters[i] / tries) * 100.0);
+        fprintf(numbers, "%d\n", counters[i]);
+    }
 
     freeRecipes(recipes, recipe_amount);
 
