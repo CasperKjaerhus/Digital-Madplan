@@ -11,6 +11,7 @@ int get_random_number(int a, int b){
 /* Function that orders recipes relative to ingredients */
 Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned_recipes, int amount_of_already_planned){
     int amount_unused, WeightedRandom, highest_match = 0, return_index = 0;
+    
     Recipe *Unused_recipes = dif_recipes(recipes, amount_of_recipes, planned_recipes, amount_of_already_planned, &amount_unused);
     
     int *matches = (int *) chkCalloc(sizeof(int) * amount_unused, "getWeightedRecipe matches");
