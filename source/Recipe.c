@@ -27,7 +27,8 @@ Recipe getWeightedRecipe(Recipe *recipes, int amount_of_recipes, Recipe *planned
     /*Calculates a pseudorandom recipe from a pseudorandom number with a weighted score
       aka: dishes with more ingredients common are more likely but not guaranteed!*/
     for(int i = 0; i < amount_unused; i++){
-        WeightedRandom = get_random_number(0, 20) + matches[i]; /*This generates a random number between zero and amount_unused + whatever the corrospondings recipe has "scored"*/
+        WeightedRandom = get_random_number(0, 20) + matches[i]; /*This generates a random number between zero and 
+        amount_unused + whatever the corrospondings recipe has "scored"*/
 
         if(WeightedRandom > highest_match){
             return_index = i;

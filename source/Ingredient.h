@@ -6,4 +6,5 @@ typedef struct Ingredient{
     float amount;
     char *unit;
 } Ingredient;
+
 #endif
